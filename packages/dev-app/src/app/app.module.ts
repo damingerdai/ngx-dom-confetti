@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxDomConfettiModule} from 'ngx-dom-confetti';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    NgxDomConfettiModule
+    NgxDomConfettiModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
