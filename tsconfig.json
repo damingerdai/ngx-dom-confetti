@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ngx-dom-confetti": [
+        "dist/ngx-dom-confetti/ngx-dom-confetti",
+        "dist/ngx-dom-confetti"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
