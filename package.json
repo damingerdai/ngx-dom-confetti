@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build dev-app",
     "build:lib": "ng build ngx-dom-confetti",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
