@@ -8,7 +8,9 @@
     "build:lib": "ng build ngx-dom-confetti",
     "watch": "ng build dev-app --watch --configuration development",
     "watch:lib": "ng build ngx-dom-confetti --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "cp": "copyfiles ./LICENSE ./dist/ngx-dom-confetti",
+    "build:pkg": "yarn build:lib && yarn cp"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +34,7 @@
     "@angular/compiler-cli": "^14.2.9",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "copyfiles": "^2.4.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

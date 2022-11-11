@@ -1,24 +1,60 @@
-# NgxDomConfetti
+# Ngx Dom Confetti
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+[Dom Confetti](https://www.npmjs.com/package/dom-confetti) for Angular
 
-## Code scaffolding
+# Install
 
-Run `ng generate component component-name --project ngx-dom-confetti` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-dom-confetti`.
-> Note: Don't forget to add `--project ngx-dom-confetti` or else it will be added to the default project in your `angular.json` file. 
+for npm user
 
-## Build
+```bash
+npm install ngx-dom-confetti
+```
 
-Run `ng build ngx-dom-confetti` to build the project. The build artifacts will be stored in the `dist/` directory.
+for yarn user
 
-## Publishing
+```bash
+yarn add ngx-dom-confetti
+```
 
-After building your library with `ng build ngx-dom-confetti`, go to the dist folder `cd dist/ngx-dom-confetti` and run `npm publish`.
+for pnpm user
 
-## Running unit tests
+```bash
+pnpm install ngx-dom-confetti
+```
 
-Run `ng test ngx-dom-confetti` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Use
 
-## Further help
+import `NgxDomConfettiModule` to `AppModule`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```ts
+import { NgxDomConfettiModule} from 'ngx-dom-confetti';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+
+    NgxDomConfettiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+use `ngx-dom-confetti`
+
+```html
+<button mat-raised-button color="primary">
+  <ngx-dom-confetti>
+    Hit Me!
+  </ngx-dom-confetti>
+</button>
+```
+
+# license
+
+[MIT](https://github.com/damingerdai/ngx-dom-confetti/blob/master/LICENSE)

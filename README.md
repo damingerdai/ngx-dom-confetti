@@ -1,27 +1,60 @@
-# NgxDomConfetti
+# Ngx Dom Confetti
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+[Dom Confetti](https://www.npmjs.com/package/dom-confetti) for Angular
 
-## Development server
+# Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+for npm user
 
-## Code scaffolding
+```bash
+npm install ngx-dom-confetti
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+for yarn user
 
-## Build
+```bash
+yarn add ngx-dom-confetti
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+for pnpm user
 
-## Running unit tests
+```bash
+pnpm install ngx-dom-confetti
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Use
 
-## Running end-to-end tests
+import `NgxDomConfettiModule` to `AppModule`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+import { NgxDomConfettiModule} from 'ngx-dom-confetti';
 
-## Further help
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    NgxDomConfettiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+use `ngx-dom-confetti`
+
+```html
+<button mat-raised-button color="primary">
+  <ngx-dom-confetti>
+    Hit Me!
+  </ngx-dom-confetti>
+</button>
+```
+
+# license
+
+[MIT](https://github.com/damingerdai/ngx-dom-confetti/blob/master/LICENSE)
