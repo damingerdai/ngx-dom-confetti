@@ -8,9 +8,79 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
-<main>
-  <ngx-dom-confetti>
-    hello
-  </ngx-dom-confetti>
-</main>
+<main class="content m-t-32">
+  <form [formGroup]="form">
+    <section class="w-full">
+      <p>angle</p>
+      <mat-slider formControlName="angle" max="360" min="0" step="1" thumbLabel="true" aria-labelledby="angle">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>spread</p>
+      <mat-slider formControlName="spread" max="360" min="0" step="1" thumbLabel="true" aria-labelledby="spread">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>startVelocity</p>
+      <mat-slider formControlName="startVelocity" max="100" min="0" step="1" thumbLabel="true"
+        aria-labelledby="startVelocity">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>elementCount</p>
+      <mat-slider formControlName="elementCount" max="200" min="0" step="1" thumbLabel="true"
+        aria-labelledby="elementCount">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>dragFriction</p>
+      <mat-slider formControlName="dragFriction" max="1" min="0" step="0.1" thumbLabel="true"
+        aria-labelledby="dragFriction">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>duration</p>
+      <mat-slider formControlName="duration" max="30000" min="0" step="10" thumbLabel="true" aria-labelledby="duration">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>stagger</p>
+      <mat-slider formControlName="stagger" max="50" min="0" step="1" thumbLabel="true" aria-labelledby="stagger">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>width</p>
+      <mat-slider formControlName="width" max="100" min="0" step="1" thumbLabel="true" aria-labelledby="width">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>height</p>
+      <mat-slider formControlName="height" max="100" min="0" step="1" thumbLabel="true" aria-labelledby="height">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <p>perspective</p>
+      <mat-slider formControlName="perspective" max="1000" min="0" step="1" thumbLabel="true"
+        aria-labelledby="perspective">
+      </mat-slider>
+    </section>
+    <section class="w-full">
+      <label id="color-presets-radio-group-label">Color presets</label>
+      <mat-radio-group aria-labelledby="color-presets-radio-group-label" class="radio-group"
+        formControlName="colors">
+        <mat-radio-button class="radio-button" *ngFor="let color of colorPresets" [value]="color.value">
+          {{color.label}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </form>
 
+  <div class="center">
+    <button mat-raised-button color="primary">
+      <ngx-dom-confetti [config]="config">
+        Hit Me!
+      </ngx-dom-confetti>
+    </button>
+  </div>
+
+</main>

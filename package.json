@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build dev-app",
     "build:lib": "ng build ngx-dom-confetti",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build dev-app --watch --configuration development",
+    "watch:lib": "ng build ngx-dom-confetti --watch --configuration development",
     "test": "ng test"
   },
   "private": true,

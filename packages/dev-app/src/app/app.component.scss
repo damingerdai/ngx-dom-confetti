@@ -1,3 +1,45 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.center {
+  text-align: center;
+  line-height: heightValue;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.m {
+  &-t {
+    &-32 {
+      margin: {
+        top: 32px;
+      };
+    }
+  }
+}
+
+.w {
+  &-full {
+    width: 100% !important;
+
+  }
+}
+
+.mat-slider {
+  width: 100%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.radio-button {
+  margin: 5px;
+}
