@@ -2,6 +2,19 @@
   "name": "ngx-dom-confetti",
   "version": "0.0.2",
   "license": "MIT",
+  "keywords": [
+    "dom-confetti",
+    "angular",
+    "angular2+"
+  ],
+  "author": {
+    "name": "arthur ming",
+    "email": "minguobin@live.com"
+  },
+  "bugs": {
+    "email": "https://github.com/damingerdai/ngx-dom-confetti/issues"
+  },
+  "homepage": "https://github.com/damingerdai/ngx-dom-confetti",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0"
