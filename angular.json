@@ -105,6 +105,15 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/dev-app/**/*.ts",
+              "packages/dev-app/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -136,11 +145,23 @@
             "tsConfig": "packages/ngx-dom-confetti/tsconfig.spec.json",
             "karmaConfig": "packages/ngx-dom-confetti/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/ngx-dom-confetti/**/*.ts",
+              "packages/ngx-dom-confetti/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "fd02fbaf-79f0-42b2-a764-edc3bac34768"
+    "analytics": "fd02fbaf-79f0-42b2-a764-edc3bac34768",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

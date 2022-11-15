@@ -1,10 +1,6 @@
 {
   "name": "ngx-dom-confetti-demo",
   "version": "0.0.0",
-  "workspaces": [
-    "packages",
-    "packages/*"
-  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +11,8 @@
     "test": "ng test",
     "cp": "copyfiles ./LICENSE ./dist/ngx-dom-confetti",
     "build:pkg": "yarn build:lib && yarn cp",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +32,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
+    "@angular-eslint/builder": "14.1.2",
+    "@angular-eslint/eslint-plugin": "14.1.2",
+    "@angular-eslint/eslint-plugin-template": "14.1.2",
+    "@angular-eslint/schematics": "14.1.2",
+    "@angular-eslint/template-parser": "14.1.2",
     "@angular/cli": "^14.2.8",
     "@angular/compiler-cli": "^14.2.9",
     "@changesets/changelog-github": "^0.4.7",
@@ -43,7 +45,10 @@
     "@commitlint/config-conventional": "^17.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "5.37.0",
+    "@typescript-eslint/parser": "5.37.0",
     "copyfiles": "^2.4.1",
+    "eslint": "^8.23.1",
     "husky": "^8.0.2",
     "is-ci": "^3.0.1",
     "jasmine-core": "~4.0.0",
