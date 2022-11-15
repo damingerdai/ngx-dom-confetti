@@ -36,7 +36,8 @@ const defaultsConfettiConfig = {
 }
 
 function createElements(root: HTMLElement, elementCount: number, colors: string[], width: string, height: string) {
-    return Array.from({ length: elementCount }).map((_, index) => {
+    const fragment = document.createDocumentFragment();
+    const element =  Array.from({ length: elementCount }).map((_, index) => {
         const element = document.createElement("div");
         const color = colors[index % colors.length];
         element.style.backgroundColor = color;
@@ -45,9 +46,12 @@ function createElements(root: HTMLElement, elementCount: number, colors: string[
         element.style.position = "absolute";
         element.style.willChange = "transform, opacity";
         element.style.visibility = "hidden";
-        root.appendChild(element);
+        fragment.appendChild(element);
         return element;
     });
+    root.appendChild(fragment);
+
+    return element;
 }
 
 interface IPhysics {
@@ -64,7 +68,7 @@ interface IPhysics {
 }
 
 interface IFetti {
-    element: HTMLDivElement, 
+    element: HTMLDivElement,
     physics: IPhysics
 }
 
@@ -126,16 +130,16 @@ function updateFetti(fetti: IFetti, progress: number, dragFriction: number, deca
     }
     fetti.physics.y += 3;
     fetti.physics.tiltAngle += fetti.physics.tiltAngleSpeed;
-  
+
     const { x, y, z, tiltAngle, wobble } = fetti.physics;
     const wobbleX = x + 10 * Math.cos(wobble);
     const wobbleY = y + 10 * Math.sin(wobble);
     const transform = `translate3d(${wobbleX}px, ${wobbleY}px, ${z}px) rotate3d(1, 1, 1, ${tiltAngle}rad)`;
-  
+
     fetti.element.style.visibility = "visible";
     fetti.element.style.transform = transform;
     fetti.element.style.opacity = (1 - progress).toString();;
-  
+
     /* eslint-enable */
   }
 
