@@ -2,7 +2,7 @@
   <span>ngx dom confetti</span>
   <span class="spacer"></span>
   <a mat-icon-button href="https://github.com/damingerdai/ngx-dom-confetti" aria-label="Github Repository">
-    <img src="../assets/github-circle-white-transparent.svg" alt="ngx-dom-confetti"/>
+    <img src="../assets/github-circle-white-transparent.svg" alt="ngx-dom-confetti" />
   </a>
 </mat-toolbar>
 <main class="content m-t-32">
@@ -63,8 +63,7 @@
     </section>
     <section class="w-full">
       <label id="color-presets-radio-group-label">Color presets</label>
-      <mat-radio-group aria-labelledby="color-presets-radio-group-label" class="radio-group"
-        formControlName="colors">
+      <mat-radio-group aria-labelledby="color-presets-radio-group-label" class="radio-group" formControlName="colors">
         <mat-radio-button class="radio-button" *ngFor="let color of colorPresets" [value]="color.value">
           {{color.label}}
         </mat-radio-button>
@@ -77,6 +76,12 @@
       <ngx-dom-confetti [config]="config">
         Hit Me!
       </ngx-dom-confetti>
+    </button>
+  </div>
+
+  <div class="center">
+    <button #btn="matButton" mat-raised-button color="primary" (click)="hitWithService()">
+      Hit Me with Service!
     </button>
   </div>
 

@@ -5,6 +5,12 @@
 .center {
   text-align: center;
   line-height: heightValue;
+
+  &:not(:first-of-type) {
+    margin: {
+      top: 8px
+    };
+  }
 }
 
 .content {

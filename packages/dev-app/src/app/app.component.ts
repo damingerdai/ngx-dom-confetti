@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ConfettiConfig } from 'ngx-dom-confetti';
+import { ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,10 @@ import { ConfettiConfig } from 'ngx-dom-confetti';
 export class AppComponent {
 
   fb: FormBuilder = inject(FormBuilder);
+  ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
   config!: Partial<ConfettiConfig>;
+  @ViewChild('btn', { read: ElementRef })
+  btn!: ElementRef<HTMLButtonElement>;
 
   colorPresets = [
     {
@@ -42,7 +45,7 @@ export class AppComponent {
     width: [10],
     height: [10],
     perspective: [0],
-    colors: [[]]
+    colors: [this.colorPresets[0].value]
   });
 
   constructor() {
@@ -54,5 +57,9 @@ export class AppComponent {
         perspective: config.perspective + 'px'
       }
     })
+  }
+
+  hitWithService() {
+    this.ngxDomConfettiService.open(this.btn.nativeElement,this.config);
   }
 }
