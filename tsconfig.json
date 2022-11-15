@@ -13,8 +13,10 @@
     "sourceMap": true,
     "paths": {
       "ngx-dom-confetti": [
-        "dist/ngx-dom-confetti/ngx-dom-confetti",
-        "dist/ngx-dom-confetti"
+        "packages/ngx-dom-confetti/src/public-api.ts"
+      ],
+      "ngx-dom-confetti/*": [
+        "packages/ngx-dom-confetti/src/lib/*"
       ]
     },
     "declaration": false,
