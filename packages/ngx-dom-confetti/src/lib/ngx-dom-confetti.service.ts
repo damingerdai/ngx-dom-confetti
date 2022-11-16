@@ -10,7 +10,6 @@ export class NgxDomConfettiService {
   }
 
   public open(el: HTMLElement, config?: Partial<ConfettiConfig>) {
-    console.log(Object.assign(defaultsConfettiConfig, config));
     confetti(el, Object.assign(defaultsConfettiConfig, config));
   }
 }
