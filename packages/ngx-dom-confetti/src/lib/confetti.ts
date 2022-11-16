@@ -20,7 +20,7 @@ export interface ConfettiConfig {
 
 const defaultColors = ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"];
 
-const defaultsConfettiConfig = {
+export const defaultsConfettiConfig = {
     angle: 90,
     spread: 45,
     startVelocity: 45,

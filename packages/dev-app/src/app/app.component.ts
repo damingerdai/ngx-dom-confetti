@@ -60,6 +60,10 @@ export class AppComponent {
   }
 
   hitWithService() {
-    this.ngxDomConfettiService.open(this.btn.nativeElement,this.config);
+    const el = this.btn.nativeElement.children.item(0) as HTMLElement;;
+    if (el) {
+      this.ngxDomConfettiService.open(el,this.config);
+    }
+
   }
 }

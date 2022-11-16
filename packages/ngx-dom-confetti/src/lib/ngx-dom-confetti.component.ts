@@ -38,6 +38,7 @@ export class NgxDomConfettiComponent implements OnInit {
 
   @HostListener('click')
   onClick() {
+    console.log(this._config);
     confetti(this.el.nativeElement, this._config);
   }
 

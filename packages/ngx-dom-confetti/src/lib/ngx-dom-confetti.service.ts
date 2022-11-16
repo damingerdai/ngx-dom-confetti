@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { confetti, ConfettiConfig } from './confetti';
+import { confetti, ConfettiConfig, defaultsConfettiConfig } from './confetti';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class NgxDomConfettiService {
   }
 
   public open(el: HTMLElement, config?: Partial<ConfettiConfig>) {
-    confetti(el, config);
+    console.log(Object.assign(defaultsConfettiConfig, config));
+    confetti(el, Object.assign(defaultsConfettiConfig, config));
   }
 }
