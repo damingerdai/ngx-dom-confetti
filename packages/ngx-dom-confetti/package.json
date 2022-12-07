@@ -12,7 +12,7 @@
     "email": "minguobin@live.com"
   },
   "bugs": {
-    "email": "https://github.com/damingerdai/ngx-dom-confetti/issues"
+    "url": "https://github.com/damingerdai/ngx-dom-confetti/issues"
   },
   "homepage": "https://github.com/damingerdai/ngx-dom-confetti",
   "peerDependencies": {
