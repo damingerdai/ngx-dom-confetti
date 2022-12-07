@@ -1,6 +1,10 @@
 {
   "name": "ngx-dom-confetti-demo",
-  "version": "0.0.0",
+  "version": "0.0.2",
+  "workspaces": [
+    "packages",
+    "packages/*"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
