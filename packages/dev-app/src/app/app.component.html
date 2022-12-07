@@ -72,8 +72,8 @@
   </form>
 
   <div class="center">
-    <button mat-raised-button color="primary">
-      <ngx-dom-confetti [config]="config">
+    <button mat-raised-button color="primary" (click)="hitWithOutService()">
+      <ngx-dom-confetti [config]="config" [active]="active">
         Hit Me!
       </ngx-dom-confetti>
     </button>

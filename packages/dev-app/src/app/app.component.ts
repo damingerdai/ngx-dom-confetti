@@ -15,6 +15,8 @@ export class AppComponent {
   @ViewChild('btn', { read: ElementRef })
   btn!: ElementRef<HTMLButtonElement>;
 
+  active: boolean;
+
   colorPresets = [
     {
       label: 'Celebration',
@@ -56,7 +58,17 @@ export class AppComponent {
         height: config.height + 'px',
         perspective: config.perspective + 'px'
       }
-    })
+    });
+
+    this.active = false;
+  }
+
+  hitWithOutService() {
+    this.active = true;
+
+    setTimeout(() => {
+      this.active = false;
+    }, 10);
   }
 
   hitWithService() {
