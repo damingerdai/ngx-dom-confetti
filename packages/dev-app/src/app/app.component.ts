@@ -72,7 +72,7 @@ export class AppComponent {
   }
 
   hitWithService() {
-    const el = this.btn.nativeElement.children.item(0) as HTMLElement;;
+    const el = this.btn.nativeElement.children.item(0) as HTMLElement;
     if (el) {
       this.ngxDomConfettiService.open(el,this.config);
     }
