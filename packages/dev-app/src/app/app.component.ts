@@ -1,6 +1,7 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
+import { confetti, ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
+import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-drective';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class AppComponent {
   config!: Partial<ConfettiConfig>;
   @ViewChild('btn', { read: ElementRef })
   btn!: ElementRef<HTMLButtonElement>;
+
+  @ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
 
   active: boolean;
 
@@ -77,5 +80,9 @@ export class AppComponent {
       this.ngxDomConfettiService.open(el,this.config);
     }
 
+  }
+
+  hitWithDirective() {
+    this.confettiDirective?.launch();
   }
 }

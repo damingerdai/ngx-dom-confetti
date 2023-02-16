@@ -37,7 +37,7 @@ export const defaultsConfettiConfig = {
 
 function createElements(root: HTMLElement, elementCount: number, colors: string[], width: string, height: string) {
     const fragment = document.createDocumentFragment();
-    const element =  Array.from({ length: elementCount }).map((_, index) => {
+    const elements =  Array.from({ length: elementCount }).map((_, index) => {
         const element = document.createElement("div");
         const color = colors[index % colors.length];
         element.style.backgroundColor = color;
@@ -51,7 +51,7 @@ function createElements(root: HTMLElement, elementCount: number, colors: string[
     });
     root.appendChild(fragment);
 
-    return element;
+    return elements;
 }
 
 interface IPhysics {

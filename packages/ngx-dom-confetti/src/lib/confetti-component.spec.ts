@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxDomConfettiComponent } from './ngx-dom-confetti.component';
+import { NgxDomConfettiComponent } from './confetti-component';
 
 describe('NgxDomConfettiComponent', () => {
   let component: NgxDomConfettiComponent;

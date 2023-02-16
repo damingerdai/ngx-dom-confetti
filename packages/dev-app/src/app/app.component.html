@@ -71,6 +71,7 @@
     </section>
   </form>
 
+  <p confetti>confetti</p>
   <div class="center">
     <button mat-raised-button color="primary" (click)="hitWithOutService()">
       <ngx-dom-confetti [config]="config" [active]="active">
@@ -82,6 +83,11 @@
   <div class="center">
     <button #btn="matButton" mat-raised-button color="primary" (click)="hitWithService()">
       Hit Me with Service!
+    </button>
+  </div>
+  <div class="center">
+    <button mat-raised-button color="primary" (click)="hitWithDirective()">
+      Hit Me with Directive!
     </button>
   </div>
 

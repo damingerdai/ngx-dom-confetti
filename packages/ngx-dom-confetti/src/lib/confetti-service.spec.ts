@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgxDomConfettiService } from './ngx-dom-confetti.service';
+import { NgxDomConfettiService } from './confetti-service';
 
 describe('NgxDomConfettiService', () => {
   let service: NgxDomConfettiService;
