@@ -1,7 +1,9 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, ElementRef, Input } from '@angular/core';
+import { BooleanInput, coerceBooleanProperty, coerceElement } from '@angular/cdk/coercion';
+import { DOCUMENT } from '@angular/common';
+import { Component, ElementRef, Inject, Input, Optional } from '@angular/core';
 
-import { confetti, ConfettiConfig } from './confetti';
+import { ConfettiRenderer } from './confetti-renderer';
+import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
 @Component({
   selector: 'ngx-dom-confetti',
@@ -9,6 +11,8 @@ import { confetti, ConfettiConfig } from './confetti';
   styles: [],
 })
 export class NgxDomConfettiComponent {
+
+  private _confettiRenderer: ConfettiRenderer;
 
   private _config: Partial<ConfettiConfig>;
 
@@ -25,26 +29,18 @@ export class NgxDomConfettiComponent {
   public set active(_active: BooleanInput) {
     this._active = coerceBooleanProperty(_active);
     if (this._active) {
-      confetti(this.el.nativeElement, this._config);
+      this._confettiRenderer.launch(coerceElement(this.el), this._config);
     }
   }
 
-  constructor(private el: ElementRef) {
+  constructor(
+    private el: ElementRef,
+    @Optional() @Inject(DOCUMENT) document: any,
+    @Optional() @Inject(NGX_CONFETTI_GLOBAL_CONFIG) globalConfig?: ConfettiConfig) {
     this._config = {
-      angle: 90,
-      spread: 45,
-      startVelocity: 45,
-      elementCount: 50,
-      width: '10px',
-      height: '10px',
-      perspective: '',
-      colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
-      duration: 3000,
-      stagger: 0,
-      dragFriction: 0.1,
-      random: Math.random,
+      ...globalConfig
     };
-
+    this._confettiRenderer = new ConfettiRenderer(document);
     this._active = false;
   }
 }

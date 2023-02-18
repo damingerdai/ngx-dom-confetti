@@ -1,6 +1,6 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { confetti, ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
+import { ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
 import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-directive';
 
 @Component({

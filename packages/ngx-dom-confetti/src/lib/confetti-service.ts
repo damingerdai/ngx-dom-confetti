@@ -1,15 +1,33 @@
-import { Injectable } from '@angular/core';
-import { confetti, ConfettiConfig, defaultsConfettiConfig } from './confetti';
+import { coerceElement } from '@angular/cdk/coercion';
+import { DOCUMENT } from '@angular/common';
+import { ElementRef, Inject, Injectable, Optional } from '@angular/core';
+import { ConfettiRenderer } from './confetti-renderer';
+import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NgxDomConfettiService {
 
-  constructor() {
+  private _confettiRenderer: ConfettiRenderer;
+
+  private _globalConfig: ConfettiConfig;
+
+  constructor(
+    @Optional() @Inject(DOCUMENT) document: any,
+    @Inject(NGX_CONFETTI_GLOBAL_CONFIG) globalConfig: ConfettiConfig,
+  ) {
+    this._confettiRenderer = new ConfettiRenderer(document);
+    this._globalConfig = globalConfig;
+    console.log(globalConfig);
   }
 
-  public open(el: HTMLElement, config?: Partial<ConfettiConfig>) {
-    confetti(el, Object.assign(defaultsConfettiConfig, config));
+  public open(el: HTMLElement | ElementRef, config?: Partial<ConfettiConfig>) {
+    this._confettiRenderer.launch(
+      coerceElement(el),
+      config
+        ? Object.assign(this._globalConfig as Partial<ConfettiConfig>, {
+            ...config,
+          })
+        : this._globalConfig
+    );
   }
 }

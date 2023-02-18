@@ -7,7 +7,7 @@ import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy
 import { MatLegacySliderModule as MatSliderModule } from '@angular/material/legacy-slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { NgxDomConfettiModule} from 'ngx-dom-confetti';
+import { NgxDomConfettiModule } from 'ngx-dom-confetti';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatRadioModule,
     MatSliderModule,
     MatToolbarModule,
-    NgxDomConfettiModule
+    NgxDomConfettiModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
