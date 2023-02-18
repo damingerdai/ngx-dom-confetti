@@ -9,6 +9,7 @@ import { confetti, ConfettiConfig } from './confetti';
   styles: [],
 })
 export class NgxDomConfettiComponent {
+
   private _config: Partial<ConfettiConfig>;
 
   private _active: boolean;
@@ -46,6 +47,4 @@ export class NgxDomConfettiComponent {
 
     this._active = false;
   }
-
-  ngOnInit(): void {}
 }
