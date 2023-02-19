@@ -17,7 +17,6 @@ export class NgxDomConfettiService {
   ) {
     this._confettiRenderer = new ConfettiRenderer(document);
     this._globalConfig = globalConfig;
-    console.log(globalConfig);
   }
 
   public open(el: HTMLElement | ElementRef, config?: Partial<ConfettiConfig>) {
