@@ -41,7 +41,7 @@ export class NgxConfettiDirective {
     }
     const element = coerceElement(this._elementRef);
     this.ngZone.runOutsideAngular(() => {
-      this._confettiRenderer.launch(this._elementRef.nativeElement, { ...this._globalConfig, ...config});
+      this._confettiRenderer.launch(this._elementRef.nativeElement, config ?? this._globalConfig);
     })
 
   }

@@ -5,60 +5,68 @@
     <img src="../assets/github-circle-white-transparent.svg" alt="ngx-dom-confetti" />
   </a>
 </mat-toolbar>
+
+
 <main class="content m-t-32">
   <form [formGroup]="form">
     <section class="w-full">
       <p>angle</p>
-      <mat-slider formControlName="angle" max="360" min="0" step="1" thumbLabel="true" aria-labelledby="angle">
+      <mat-slider max="360" min="0" step="1" thumbLabel="true" aria-labelledby="angle"><input formControlName="angle"
+          matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>spread</p>
-      <mat-slider formControlName="spread" max="360" min="0" step="1" thumbLabel="true" aria-labelledby="spread">
+      <mat-slider max="360" min="0" step="1" thumbLabel="true" aria-labelledby="spread"><input formControlName="spread"
+          matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>startVelocity</p>
-      <mat-slider formControlName="startVelocity" max="100" min="0" step="1" thumbLabel="true"
-        aria-labelledby="startVelocity">
+      <mat-slider max="100" min="0" step="1" thumbLabel="true" aria-labelledby="startVelocity"><input
+          formControlName="startVelocity" matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>elementCount</p>
-      <mat-slider formControlName="elementCount" max="200" min="0" step="1" thumbLabel="true"
-        aria-labelledby="elementCount">
+      <mat-slider max="200" min="0" step="1" thumbLabel="true" aria-labelledby="elementCount"><input
+          formControlName="elementCount" matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>dragFriction</p>
-      <mat-slider formControlName="dragFriction" max="1" min="0" step="0.1" thumbLabel="true"
-        aria-labelledby="dragFriction">
+      <mat-slider max="1" min="0" step="0.1" thumbLabel="true" aria-labelledby="dragFriction"><input
+          formControlName="dragFriction" matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>duration</p>
-      <mat-slider formControlName="duration" max="30000" min="0" step="10" thumbLabel="true" aria-labelledby="duration">
+      <mat-slider max="30000" min="0" step="10" thumbLabel="true" aria-labelledby="duration"><input
+          formControlName="duration" matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>stagger</p>
-      <mat-slider formControlName="stagger" max="50" min="0" step="1" thumbLabel="true" aria-labelledby="stagger">
+      <mat-slider max="50" min="0" step="1" thumbLabel="true" aria-labelledby="stagger"><input formControlName="stagger"
+          matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>width</p>
-      <mat-slider formControlName="width" max="100" min="0" step="1" thumbLabel="true" aria-labelledby="width">
+      <mat-slider max="100" min="0" step="1" thumbLabel="true" aria-labelledby="width"><input formControlName="width"
+          matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>height</p>
-      <mat-slider formControlName="height" max="100" min="0" step="1" thumbLabel="true" aria-labelledby="height">
+      <mat-slider max="100" min="0" step="1" thumbLabel="true" aria-labelledby="height"><input formControlName="height"
+          matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">
       <p>perspective</p>
-      <mat-slider formControlName="perspective" max="1000" min="0" step="1" thumbLabel="true"
-        aria-labelledby="perspective">
+      <mat-slider max="1000" min="0" step="1" thumbLabel="true" aria-labelledby="perspective"><input
+          formControlName="perspective" matSliderThumb />
       </mat-slider>
     </section>
     <section class="w-full">

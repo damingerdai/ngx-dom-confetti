@@ -22,11 +22,7 @@ export class NgxDomConfettiService {
   public open(el: HTMLElement | ElementRef, config?: Partial<ConfettiConfig>) {
     this._confettiRenderer.launch(
       coerceElement(el),
-      config
-        ? Object.assign(this._globalConfig as Partial<ConfettiConfig>, {
-            ...config,
-          })
-        : this._globalConfig
+      config ?? this._globalConfig
     );
   }
 }
