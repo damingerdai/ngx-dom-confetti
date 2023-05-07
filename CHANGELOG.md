@@ -1,3 +1,23 @@
+# [0.2.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.1.0...v0.2.0) (2023-05-07)
+
+
+### Bug Fixes
+
+* add NgxConfettiDirective into export list in top-level library entrypoint ([f4d7e6a](https://github.com/damingerdai/ngx-dom-confetti/commit/f4d7e6a0c54b199bb3a41390219abb44465c29b4))
+* **deps:** update dependency rxjs to ~7.8.0 ([#20](https://github.com/damingerdai/ngx-dom-confetti/issues/20)) ([1b8490d](https://github.com/damingerdai/ngx-dom-confetti/commit/1b8490d6c71ffeb1393e39f071a699184dfa771b))
+* fix no provider for NgxDomConfettiService ([1061e10](https://github.com/damingerdai/ngx-dom-confetti/commit/1061e1095954759a366106b85d0751bd6c906e16))
+
+
+### Features
+
+* add confetti directive ([1eb52e5](https://github.com/damingerdai/ngx-dom-confetti/commit/1eb52e5a2257ec7acf039584b8eb1900df7273b4))
+* bump angular eslint from 15.2.1 to 16.0.0 ([d295ec2](https://github.com/damingerdai/ngx-dom-confetti/commit/d295ec2557b51a707042aee88c8400e54b537437))
+* bump angular from 15.2.0 to 16.0.0 ([7a7cc24](https://github.com/damingerdai/ngx-dom-confetti/commit/7a7cc2457916d6ee379b11487ae10fe6b28c4239))
+* ngx-dom-confetti need angular mini version v16.0.0 ([b9c1518](https://github.com/damingerdai/ngx-dom-confetti/commit/b9c1518a58cc67170d5ec68884033f85fb71350f))
+* use active property to shwo confetti ([6657cbe](https://github.com/damingerdai/ngx-dom-confetti/commit/6657cbe8066136ace4a89d84305cee8428b46e13))
+
+
+
 ## [0.1.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.0.2...v0.1.0) (2022-12-07)
 
 
