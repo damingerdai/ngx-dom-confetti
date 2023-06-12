@@ -3073,15 +3073,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node@*":
+"@types/node@*", "@types/node@>=10.0.0":
   version "20.3.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.3.0.tgz#719498898d5defab83c3560f45d8498f58d11938"
   integrity sha512-cumHmIAf6On83X7yP+LrsEyUOf/YlociZelmpRYaGFydoaPdxdt80MAbu6vWerQT2COCp2nPvHdsbD7tHn/YlQ==
-
-"@types/node@>=10.0.0":
-  version "18.14.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.5.tgz#4a13a6445862159303fc38586598a9396fc408b3"
-  integrity sha512-CRT4tMK/DHYhw1fcCEBwME9CSaZNclxfzVMe7GsO6ULSwsttbj70wSiX6rZdIjGblu93sTJxLdhNIT85KKI7Qw==
 
 "@types/node@^18.0.0":
   version "18.16.17"
@@ -4873,14 +4868,14 @@ end-of-stream@^1.4.1:
     once "^1.4.0"
 
 engine.io-parser@~5.0.3:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/engine.io-parser/-/engine.io-parser-5.0.6.tgz#7811244af173e157295dec9b2718dfe42a64ef45"
-  integrity sha512-tjuoZDMAdEhVnSFleYPCtdL2GXwVTGtNjoeJd9IhIG3C1xs9uwxqRNEu5WpnDZCaozwVlK/nuQhpodhXSIMaxw==
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/engine.io-parser/-/engine.io-parser-5.0.7.tgz#ed5eae76c71f398284c578ab6deafd3ba7e4e4f6"
+  integrity sha512-P+jDFbvK6lE3n1OL+q9KuzdOFWkkZ/cMV9gol/SbVfpyqfvrfrFTOFJ6fQm2VC3PZHlU3QPhVwmbsCnauHF2MQ==
 
-engine.io@~6.4.1:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/engine.io/-/engine.io-6.4.1.tgz#8056b4526a88e779f9c280d820422d4e3eeaaae5"
-  integrity sha512-JFYQurD/nbsA5BSPmbaOSLa3tSVj8L6o4srSwXXY3NqE+gGUNmmPTbhn8tjzcCtSqhFgIeqef81ngny8JM25hw==
+engine.io@~6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/engine.io/-/engine.io-6.4.2.tgz#ffeaf68f69b1364b0286badddf15ff633476473f"
+  integrity sha512-FKn/3oMiJjrOEOeUub2WCox6JhxBXq/Zn3fZOMCBxKnNYtsdKjxhl7yR3fZhM9PV+rdE75SU5SYMc+2PGzo+Tg==
   dependencies:
     "@types/cookie" "^0.4.1"
     "@types/cors" "^2.8.12"
@@ -5567,7 +5562,17 @@ get-caller-file@^2.0.5:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
-get-intrinsic@^1.0.2, get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0:
+get-intrinsic@^1.0.2:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.2.1.tgz#d295644fed4505fc9cde952c37ee12b477a83d82"
+  integrity sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==
+  dependencies:
+    function-bind "^1.1.1"
+    has "^1.0.3"
+    has-proto "^1.0.1"
+    has-symbols "^1.0.3"
+
+get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.2.0.tgz#7ad1dc0535f3a2904bba075772763e5051f6d05f"
   integrity sha512-L049y6nFOuom5wGyRc3/gdTLO94dySVKRACj1RmJZBQXlbTMhtNIgkWkUHq+jYmZvKf14EW1EoJnnjbmoHij0Q==
@@ -5744,12 +5749,12 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
-graceful-fs@^4.1.2, graceful-fs@^4.2.4, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
+graceful-fs@^4.1.2, graceful-fs@^4.2.4, graceful-fs@^4.2.9:
   version "4.2.10"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
-graceful-fs@^4.1.6, graceful-fs@^4.2.0:
+graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.6:
   version "4.2.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
@@ -5802,6 +5807,11 @@ has-property-descriptors@^1.0.0:
   integrity sha512-62DVLZGoiEBDHQyqG4w9xCuZ7eJEwNmJRWw2VY84Oedb7WFcA27fiEVe8oUQx9hAUJ4ekurquucTGwsyO1XGdQ==
   dependencies:
     get-intrinsic "^1.1.1"
+
+has-proto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/has-proto/-/has-proto-1.0.1.tgz#1885c1305538958aff469fef37937c22795408e0"
+  integrity sha512-7qE+iP+O+bgF9clE5+UoBFzE65mlBiVj3tKCrlNQ0Ogwm0BjpT/gK4SlLYDMybDh5I3TCTKnPPa0oMG7JDYrhg==
 
 has-symbols@^1.0.2, has-symbols@^1.0.3:
   version "1.0.3"
@@ -6638,9 +6648,9 @@ karma-source-map-support@1.4.0:
     source-map-support "^0.5.5"
 
 karma@~6.4.0:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-6.4.1.tgz#f2253716dd3a41aaa813fa9f54b6ee047e1127d9"
-  integrity sha512-Cj57NKOskK7wtFWSlMvZf459iX+kpYIPXmkNUzP2WAFcA7nhr/ALn5R7sw3w+1udFDcpMx/tuB8d5amgm3ijaA==
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-6.4.2.tgz#a983f874cee6f35990c4b2dcc3d274653714de8e"
+  integrity sha512-C6SU/53LB31BEgRg+omznBEMY4SjHU3ricV6zBcAe1EeILKkeScr+fZXtaI5WyDbkVowJxxAI6h73NcFPmXolQ==
   dependencies:
     "@colors/colors" "1.5.0"
     body-parser "^1.19.0"
@@ -6907,9 +6917,9 @@ log-update@^4.0.0:
     wrap-ansi "^6.2.0"
 
 log4js@^6.4.1:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.8.0.tgz#f0fe9b2b82725aaf97f20692e23381a5c5722448"
-  integrity sha512-g+V8gZyurIexrOvWQ+AcZsIvuK/lBnx2argejZxL4gVZ4Hq02kUYH6WZOnqxgBml+zzQZYdaEoTN84B6Hzm8Fg==
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.9.1.tgz#aba5a3ff4e7872ae34f8b4c533706753709e38b6"
+  integrity sha512-1somDdy9sChrr9/f4UlzhdaGfDR2c/SaD2a4T7qEkG4jTS57/B3qmnjLYePwQ8cqWnUHZI0iAKxMBpCZICiZ2g==
   dependencies:
     date-format "^4.0.14"
     debug "^4.3.4"
@@ -8835,25 +8845,25 @@ socket.io-adapter@~2.5.2:
   dependencies:
     ws "~8.11.0"
 
-socket.io-parser@~4.2.1:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-4.2.2.tgz#1dd384019e25b7a3d374877f492ab34f2ad0d206"
-  integrity sha512-DJtziuKypFkMMHCm2uIshOYC7QaylbtzQwiMYDuCKy3OPkjLzu4B2vAhTlqipRHHzrI0NJeBAizTK7X+6m1jVw==
+socket.io-parser@~4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-4.2.4.tgz#c806966cf7270601e47469ddeec30fbdfda44c83"
+  integrity sha512-/GbIKmo8ioc+NIWIhwdecY0ge+qVBSMdgxGygevmdHj24bsfgtCmcUUcQ5ZzcylGFHsN3k4HB4Cgkl96KVnuew==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
 
 socket.io@^4.4.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-4.6.1.tgz#62ec117e5fce0692fa50498da9347cfb52c3bc70"
-  integrity sha512-KMcaAi4l/8+xEjkRICl6ak8ySoxsYG+gG6/XfRCPJPQ/haCRIJBTL4wIl8YCsmtaBovcAXGLOShyVWQ/FG8GZA==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-4.6.2.tgz#d597db077d4df9cbbdfaa7a9ed8ccc3d49439786"
+  integrity sha512-Vp+lSks5k0dewYTfwgPT9UeGGd+ht7sCpB7p0e83VgO4X/AHYWhXITMrNk/pg8syY2bpx23ptClCQuHhqi2BgQ==
   dependencies:
     accepts "~1.3.4"
     base64id "~2.0.0"
     debug "~4.3.2"
-    engine.io "~6.4.1"
+    engine.io "~6.4.2"
     socket.io-adapter "~2.5.2"
-    socket.io-parser "~4.2.1"
+    socket.io-parser "~4.2.4"
 
 sockjs@^0.3.24:
   version "0.3.24"
@@ -9400,9 +9410,9 @@ typescript@~5.0.0:
   integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
 
 ua-parser-js@^0.7.30:
-  version "0.7.33"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
-  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
+  version "0.7.35"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.35.tgz#8bda4827be4f0b1dda91699a29499575a1f1d307"
+  integrity sha512-veRf7dawaj9xaWEu9HoTVn5Pggtc/qj+kqTOFvNiN1l0YdxwC1kvel57UCjThjGa3BHBihE8/UJAHI+uQHmd/g==
 
 uglify-js@^3.1.4:
   version "3.17.4"
