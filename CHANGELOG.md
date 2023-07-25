@@ -1,3 +1,19 @@
+## [0.2.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.0...v0.2.1) (2023-07-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rxjs to v7.8.1 ([5ca5768](https://github.com/damingerdai/ngx-dom-confetti/commit/5ca5768942e3bc3b4976c33d19b5b9d4000ab8e6))
+* **deps:** update dependency tslib to v2.6.0 ([#41](https://github.com/damingerdai/ngx-dom-confetti/issues/41)) ([7fee744](https://github.com/damingerdai/ngx-dom-confetti/commit/7fee744af1fe74bf51512161641b23d41507d791))
+
+
+### Features
+
+* bump angular from 16.0.0 to 16.1.6 ([3902c4a](https://github.com/damingerdai/ngx-dom-confetti/commit/3902c4a1657855e86e409c4a51d7957ec735ab33))
+* **deps:** update dependency tslib to v2.6.1 ([#56](https://github.com/damingerdai/ngx-dom-confetti/issues/56)) ([83a22c0](https://github.com/damingerdai/ngx-dom-confetti/commit/83a22c0b0e35d1bffb161b8c39703c14724893cf))
+
+
+
 # [0.2.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.1.0...v0.2.0) (2023-05-07)
 
 
