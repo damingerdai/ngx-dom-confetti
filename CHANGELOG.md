@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.1...v0.2.2) (2023-07-28)
+
+
+### Features
+
+* bump angular from 16.1.6 to 16.1.7 ([c409c62](https://github.com/damingerdai/ngx-dom-confetti/commit/c409c62e877b17e5dbdb50aaa777b318104b238d))
+
+
+
 ## [0.2.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.0...v0.2.1) (2023-07-25)
 
 
