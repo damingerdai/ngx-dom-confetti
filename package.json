@@ -14,7 +14,7 @@
     "watch:lib": "ng build ngx-dom-confetti --watch --configuration development",
     "test": "ng test",
     "cp": "copyfiles ./LICENSE ./dist/ngx-dom-confetti",
-    "build:pkg": "yarn build:lib && yarn cp",
+    "package": "yarn build:lib && yarn cp",
     "prepare": "is-ci || husky install",
     "lint": "ng lint dev-app && ng lint ngx-dom-confetti",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
