@@ -1,11 +1,13 @@
 <mat-toolbar color="primary">
-  <span>ngx dom confetti</span>
+  <a mat-button aria-label="logo">
+    <img class="logo" src="../assets/angular-white-transparent.svg" />
+    <span>ngx dom confetti</span>
+  </a>
   <span class="spacer"></span>
   <a mat-icon-button href="https://github.com/damingerdai/ngx-dom-confetti" aria-label="Github Repository">
     <img src="../assets/github-circle-white-transparent.svg" alt="ngx-dom-confetti" />
   </a>
 </mat-toolbar>
-
 
 <main class="content m-t-32">
   <form [formGroup]="form">
@@ -73,7 +75,7 @@
       <label id="color-presets-radio-group-label">Color presets</label>
       <mat-radio-group aria-labelledby="color-presets-radio-group-label" class="radio-group" formControlName="colors">
         <mat-radio-button class="radio-button" *ngFor="let color of colorPresets" [value]="color.value">
-          {{color.label}}
+          {{ color.label }}
         </mat-radio-button>
       </mat-radio-group>
     </section>
@@ -98,5 +100,4 @@
       Hit Me with Directive!
     </button>
   </div>
-
 </main>

@@ -2,14 +2,20 @@
   flex: 1 1 auto;
 }
 
+.logo {
+  height: 26px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 .center {
   text-align: center;
   line-height: heightValue;
 
   &:not(:first-of-type) {
     margin: {
-      top: 8px
-    };
+      top: 8px;
+    }
   }
 }
 
@@ -23,7 +29,7 @@
     &-32 {
       margin: {
         top: 32px;
-      };
+      }
     }
   }
 }
@@ -31,7 +37,6 @@
 .w {
   &-full {
     width: 100% !important;
-
   }
 }
 
@@ -53,5 +58,5 @@
 .bottom {
   margin: {
     bottom: 200px;
-  };
+  }
 }
