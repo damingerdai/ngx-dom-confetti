@@ -13,6 +13,10 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./routes/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'guide',
+        loadChildren: () => import('./routes/guide/guide.module').then(m => m.GuideModule)
       }
     ]
   }

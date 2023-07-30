@@ -27,7 +27,7 @@ pnpm install ngx-dom-confetti
 import `NgxDomConfettiModule` to `AppModule`
 
 ```ts
-import { NgxDomConfettiModule} from 'ngx-dom-confetti';
+import { NgxDomConfettiModule } from 'ngx-dom-confetti';
 
 @NgModule({
   declarations: [

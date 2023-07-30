@@ -1,0 +1,41 @@
+.guide-wrapper {
+  padding: 70px 70px 0;
+  display: block;
+  text-align: center;
+
+  .docs-markdown {
+    max: {
+      width: 100%;
+    }
+    text: {
+      align: left;
+    }
+
+    h1 {
+      display: inline-block;
+      font-size: 34px;
+      font-weight: 400;
+      padding: 5px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-weight: 400;
+      font-size: 24px;
+    }
+
+    p,
+    ul,
+    ol {
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    .code-module-name {
+      font-size: 0.9em;
+      border-radius: 2px;
+      background: #f7f7f7;
+      padding: 0px 5px;
+    }
+  }
+}

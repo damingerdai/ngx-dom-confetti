@@ -1,0 +1,113 @@
+<main class="guide-wrapper">
+  <div class="docs-markdown">
+    <h1>How to setup ngx-dom-confetti</h1>
+    <h2>Install</h2>
+    <p>for npm user</p>
+    <app-shell> npm install ngx-dom-confetti </app-shell>
+    <p>for yarn user</p>
+    <app-shell> yarn install ngx-dom-confetti </app-shell>
+    <p>for pnpm user</p>
+    <app-shell> pnpm install ngx-dom-confetti </app-shell>
+    <h2>Usege</h2>
+    <p>
+      import <code class="code-module-name">NgxDomConfettiModule</code> to
+      <code class="code-module-name">AppModule</code>
+    </p>
+    <pre>
+      <code highlight class="language-ts">
+import  {{ '{' }} NgxDomConfettiModule {{ '}' }} from 'ngx-dom-confetti';
+
+@NgModule({{ '{' }}
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+
+    NgxDomConfettiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+{{ '}' }})
+export class AppModule {{ '{' }}  {{ '}' }}
+      </code>
+    </pre>
+    <h3>
+      use ngx-dom-confetti
+    </h3>
+    <p>
+      component:
+    </p>
+    <pre>
+      <code highlight class="language-html">
+&lt;button mat-raised-button color="primary" &gt;
+  &lt;ngx-dom-confetti&gt;
+    Hit Me!
+  &lt;/ngx-dom-confetti&gt;
+&lt;/button&gt;
+      </code>
+    </pre>
+    <p>
+      service
+    </p>
+    <pre >
+      <code highlight class="language-ts">
+  @Component({{ '{' }}
+    selector: 'app-root',
+    template: `
+    &lt;div class="center"&gt;;
+      &lt;button  #btn="matButton" mat-raised-button color="primary" (click)="hitWithService()"&gt;;
+          Hit Me with Service!
+      &lt;/button&gt;;
+    &lt;/div&gt;;
+    `,
+    styleUrls: ['./app.component.scss']
+  {{'}'}})
+  export class AppComponent {{ '{' }}
+
+    ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
+
+    @ViewChild('btn', {{ '{' }} read: ElementRef {{ '}' }})
+    btn!: ElementRef&lt;HTMLButtonElement&gt;;
+
+    hitWithService() {{ '{' }}
+      const el = this.btn.nativeElement.children.item(0) as HTMLElement;
+      if (el) {{ '{' }}
+        this.ngxDomConfettiService.open(el,this.config);
+      {{ '}' }}
+
+    {{ '}' }}
+  {{ '}' }}
+      </code>
+    </pre>
+    <p>
+      directive
+    </p>
+    <pre >
+      <code highlight class="language-ts">
+@Component({{ '{' }}
+  selector: 'app-root',
+  template: `
+  &lt;div class="center"&gt;;
+    &lt;button mat-raised-button color="primary" (click)="hitWithDirective()"&gt;;
+        Hit Me with Directive!
+    &lt;/button>
+  &lt;/div&gt;;
+  `,
+  styleUrls: ['./app.component.scss']
+{{ '}' }})
+export class AppComponent {{ '{' }}
+
+  ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
+
+  @ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
+
+  hitWithDirective() {{ '{' }}
+    this.confettiDirective?.launch();
+  {{ '}' }}
+{{ '}' }}
+      </code>
+    </pre>
+  </div>
+</main>

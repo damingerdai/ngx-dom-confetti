@@ -20,7 +20,7 @@ interface IFetti {
 
 export class ConfettiRenderer {
 
-  constructor(private _document: Document) {}
+  constructor(private _document: Document) { }
 
   private createElements(
     elementCount: number,
@@ -30,7 +30,7 @@ export class ConfettiRenderer {
   ): {
     fragment: DocumentFragment,
     elements: HTMLDivElement[]
-   } {
+  } {
     const fragment = this._document.createDocumentFragment();
     const elements = Array.from({ length: elementCount }).map((_, index) => {
       const element = this._document.createElement('div');
@@ -103,30 +103,30 @@ export class ConfettiRenderer {
     let startTime: number;
 
     return new Promise<void>(resolve => {
-        const update = (time: number) => {
-            if (!startTime) startTime = time;
-            const elapsed = time - startTime;
-            const progress = startTime === time ? 0 : (time - startTime) / duration;
-            fettis.slice(0, Math.ceil(elapsed / stagger)).forEach(fetti => {
-                this.updateFetti(fetti, progress, dragFriction, decay);
-            });
+      const update = (time: number) => {
+        if (!startTime) startTime = time;
+        const elapsed = time - startTime;
+        const progress = startTime === time ? 0 : (time - startTime) / duration;
+        fettis.slice(0, Math.ceil(elapsed / stagger)).forEach(fetti => {
+          this.updateFetti(fetti, progress, dragFriction, decay);
+        });
 
-            if (time - startTime < duration) {
-                requestAnimationFrame(update);
-            } else {
-                fettis.forEach((fetti) => {
-                  if (fetti.element.parentNode === root) {
-                    root.removeChild(fetti.element);
-                  }
-                })
-
-                resolve();
+        if (time - startTime < duration) {
+          requestAnimationFrame(update);
+        } else {
+          fettis.forEach((fetti) => {
+            if (fetti.element.parentNode === root) {
+              root.removeChild(fetti.element);
             }
-        }
+          })
 
-        requestAnimationFrame(update);
+          resolve();
+        }
+      }
+
+      requestAnimationFrame(update);
     });
-}
+  }
 
   public launch(root: HTMLElement, config?: Partial<ConfettiConfig>): Promise<void> {
     const {

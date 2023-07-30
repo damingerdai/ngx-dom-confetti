@@ -1,0 +1,22 @@
+.copy {
+  position: absolute;
+  right: 70px;
+}
+
+pre {
+  border-radius: 5px;
+  display: block;
+  margin: 16px auto;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+  font-family: Roboto Mono, monospace;
+  background: rgba(0, 0, 0, 0.01);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+
+  code {
+    background: transparent;
+    padding: 0;
+    font-size: 100%;
+  }
+}
