@@ -22,7 +22,8 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "version:patch": "yarn version --patch",
     "version:minor": "yarn version --minor",
-    "version:major": "yarn version --major"
+    "version:major": "yarn version --major",
+    "analyze": "ng build dev-app --configuration production --stats-json && webpack-bundle-analyzer dist/dev-app/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "highlight.js": "^11.8.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "webpack-bundle-analyzer": "^4.9.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

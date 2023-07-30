@@ -1,6 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-// import hljs from 'highlight.js';
 
 @Directive({
   selector: 'code[highlight]',
