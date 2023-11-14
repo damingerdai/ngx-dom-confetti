@@ -17,7 +17,7 @@
       <code highlight class="language-ts">
 import  {{ '{' }} NgxDomConfettiModule {{ '}' }} from 'ngx-dom-confetti';
 
-@NgModule({{ '{' }}
+&#64;NgModule({{ '{' }}
   declarations: [
     AppComponent
   ],
@@ -53,7 +53,7 @@ export class AppModule {{ '{' }}  {{ '}' }}
     </p>
     <pre >
       <code highlight class="language-ts">
-  @Component({{ '{' }}
+  &#64;Component({{ '{' }}
     selector: 'app-root',
     template: `
     &lt;div class="center"&gt;;
@@ -68,7 +68,7 @@ export class AppModule {{ '{' }}  {{ '}' }}
 
     ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
 
-    @ViewChild('btn', {{ '{' }} read: ElementRef {{ '}' }})
+    &#64;ViewChild('btn', {{ '{' }} read: ElementRef {{ '}' }})
     btn!: ElementRef&lt;HTMLButtonElement&gt;;
 
     hitWithService() {{ '{' }}
@@ -86,7 +86,7 @@ export class AppModule {{ '{' }}  {{ '}' }}
     </p>
     <pre >
       <code highlight class="language-ts">
-@Component({{ '{' }}
+&#64;Component({{ '{' }}
   selector: 'app-root',
   template: `
   &lt;div class="center"&gt;;
@@ -101,7 +101,7 @@ export class AppComponent {{ '{' }}
 
   ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
 
-  @ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
+  &#64;ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
 
   hitWithDirective() {{ '{' }}
     this.confettiDirective?.launch();
