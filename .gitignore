@@ -4,7 +4,6 @@
 /dist
 /tmp
 /out-tsc
-/bazel-out
 
 # Node
 /node_modules
@@ -40,3 +39,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Only exists if Bazel was run
+/bazel-*
+.bazelrc.user
