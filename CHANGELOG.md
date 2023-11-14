@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.2...v0.3.0) (2023-11-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency webpack-bundle-analyzer to v4.9.1 ([#71](https://github.com/damingerdai/ngx-dom-confetti/issues/71)) ([df49d39](https://github.com/damingerdai/ngx-dom-confetti/commit/df49d39d137849c748b5e94b7c02daa837af1852))
+
+
+### Features
+
+* bump angular 17 ([#70](https://github.com/damingerdai/ngx-dom-confetti/issues/70)) ([fe4d3fc](https://github.com/damingerdai/ngx-dom-confetti/commit/fe4d3fc0afce6c1310d43b2dfe56a5cd00d8cf6a))
+
+
+
 ## [0.2.2](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.1...v0.2.2) (2023-07-28)
 
 
