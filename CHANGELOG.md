@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.3.0...v0.3.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency highlight.js to v11.9.0 ([#73](https://github.com/damingerdai/ngx-dom-confetti/issues/73)) ([22d736d](https://github.com/damingerdai/ngx-dom-confetti/commit/22d736dd86b814dd226b5b64350cb56b2d185e61))
+
+
+
 # [0.3.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.2.2...v0.3.0) (2023-11-14)
 
 
