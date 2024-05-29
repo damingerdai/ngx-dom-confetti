@@ -72,5 +72,9 @@
     "lint-staged": "^15.0.0",
     "ng-packagr": "^18.0.0",
     "typescript": "~5.4.5"
+  },
+  "resolutions": {
+    "wrap-ansi": "7.0.0",
+    "string-width": "4.1.0"
   }
 }
