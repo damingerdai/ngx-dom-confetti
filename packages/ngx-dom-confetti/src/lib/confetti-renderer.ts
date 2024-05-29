@@ -101,30 +101,40 @@ export class ConfettiRenderer {
 
   private animate(root: HTMLElement, fettis: Array<IFetti>, dragFriction: number, decay: number, duration: number, stagger: number) {
     let startTime: number;
+    let isActive = true;
+
+    const update = (time: number) => {
+      if (!isActive) return;
+
+      if (!startTime) startTime = time;
+      const elapsed = time - startTime;
+      const progress = startTime === time ? 0 : (time - startTime) / duration;
+      fettis.slice(0, Math.ceil(elapsed / stagger)).forEach(fetti => {
+        this.updateFetti(fetti, progress, dragFriction, decay);
+      });
+
+      if (time - startTime < duration) {
+        requestAnimationFrame(update);
+      } else {
+        fettis.forEach((fetti) => {
+          if (fetti.element.parentNode === root) {
+            root.removeChild(fetti.element);
+          }
+        })
+
+        isActive = false;
+      }
+    }
+
+    requestAnimationFrame(update);
 
     return new Promise<void>(resolve => {
-      const update = (time: number) => {
-        if (!startTime) startTime = time;
-        const elapsed = time - startTime;
-        const progress = startTime === time ? 0 : (time - startTime) / duration;
-        fettis.slice(0, Math.ceil(elapsed / stagger)).forEach(fetti => {
-          this.updateFetti(fetti, progress, dragFriction, decay);
-        });
-
-        if (time - startTime < duration) {
-          requestAnimationFrame(update);
-        } else {
-          fettis.forEach((fetti) => {
-            if (fetti.element.parentNode === root) {
-              root.removeChild(fetti.element);
-            }
-          })
-
+      const checkIfDone = setInterval(() => {
+        if (!isActive) {
+          clearInterval(checkIfDone);
           resolve();
         }
-      }
-
-      requestAnimationFrame(update);
+      }, 100);
     });
   }
 
