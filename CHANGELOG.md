@@ -1,3 +1,22 @@
+# [0.4.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.3.1...v0.4.0) (2024-05-29)
+
+
+### Bug Fixes
+
+* lock wrap-ansi and string-wdith version ([5d5fb43](https://github.com/damingerdai/ngx-dom-confetti/commit/5d5fb43caeb894c8c7f4997520995e93cce1b347))
+
+
+### Features
+
+* bump angular v18 ([4531bda](https://github.com/damingerdai/ngx-dom-confetti/commit/4531bda0e392ca3fb519bdcefa15326ec3d1d9d6))
+
+
+### Performance Improvements
+
+* The callback function for `requestAnimationFrame` has been extracted into the main body of the `animate` method to avoid creating a new function on each animation loop ([8d81455](https://github.com/damingerdai/ngx-dom-confetti/commit/8d81455c985ff9d350563f0d06d3693ac3b4ef7d))
+
+
+
 ## [0.3.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.3.0...v0.3.1) (2024-05-29)
 
 
