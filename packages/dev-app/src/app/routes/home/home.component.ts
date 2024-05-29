@@ -1,12 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ConfettiConfig, NgxDomConfettiService } from 'ngx-dom-confetti';
+import { ConfettiConfig, NgxDomConfettiModule, NgxDomConfettiService } from 'ngx-dom-confetti';
 import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-directive';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  imports: [
+    CommonModule,
+    NgxDomConfettiModule,
+    SharedModule,
+  ],
+  standalone: true,
 })
 export class HomeComponent {
 
