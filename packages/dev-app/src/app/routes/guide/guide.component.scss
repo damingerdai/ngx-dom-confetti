@@ -1,7 +1,13 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
 .guide-wrapper {
   padding: 70px 70px 0;
   display: block;
   text-align: center;
+  max-width: 720px;
+
 
   .docs-markdown {
     max: {
