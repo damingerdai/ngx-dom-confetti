@@ -221,10 +221,10 @@
     vite "5.2.11"
     watchpack "2.4.1"
 
-"@angular/cdk@18.0.0":
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-18.0.0.tgz#6358f553d54969b18a2efa9305e1aa08449d6021"
-  integrity sha512-V0i1SAiT2PTNyugBW0E4fev8G/4XP5FdyX2YD6oc5sNyt3GFcoDNHcz+oEne8+aYVnQ3Ax9Zutq/SQincDHIbw==
+"@angular/cdk@18.0.5":
+  version "18.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-18.0.5.tgz#83dad629605289cf57fbdb6addcbc28733a347fb"
+  integrity sha512-Yf94Udxip8xjVIJlxwh80h6fUpX5JFcBv3FCFer7DU/YzWdoTL+BTIYF8og+NjlDRt1nSbTxdyU2LVI0rTVkpg==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -295,10 +295,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/material@18.0.0":
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-18.0.0.tgz#8e235d6fd263381b2b3319447cb1efbb0221543a"
-  integrity sha512-4WfMcr4cX3cF7dKz+cXf9YIvhWOJGTP24rbMF5C6eC5K20IK6zgA//Qn0VSTwZkm54Tu9C7kF+CfNLeLy6i5uQ==
+"@angular/material@18.0.5":
+  version "18.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-18.0.5.tgz#7c17cd6eaf76fc084d0e68d0b4a8be677de7481c"
+  integrity sha512-8xCyEs9yT7tp7vSBcVww+Adt2ue0oFG2yfISYRNweg0RXC9qk64DDhcIyYhn92xLSnFH1q6mPcjrNw8RmhA10A==
   dependencies:
     "@material/animation" "15.0.0-canary.7f224ddd4.0"
     "@material/auto-init" "15.0.0-canary.7f224ddd4.0"
@@ -9033,7 +9033,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -9046,6 +9046,13 @@ strip-ansi@^5.2.0:
   integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
     ansi-regex "^4.1.0"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
 
 strip-ansi@^7.0.1, strip-ansi@^7.1.0:
   version "7.1.0"
@@ -9715,7 +9722,16 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@7.0.0, wrap-ansi@^6.2.0, wrap-ansi@^7.0.0, wrap-ansi@^8.1.0, wrap-ansi@^9.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@7.0.0, wrap-ansi@^6.2.0, wrap-ansi@^7.0.0, wrap-ansi@^8.1.0, wrap-ansi@^9.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
