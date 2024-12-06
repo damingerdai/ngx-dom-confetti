@@ -6,15 +6,14 @@ import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-directive';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  imports: [
-    CommonModule,
-    NgxDomConfettiModule,
-    SharedModule,
-  ],
-  standalone: true,
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [
+        CommonModule,
+        NgxDomConfettiModule,
+        SharedModule,
+    ]
 })
 export class HomeComponent {
 

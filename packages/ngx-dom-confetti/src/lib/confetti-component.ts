@@ -6,9 +6,10 @@ import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
 @Component({
-  selector: 'ngx-dom-confetti',
-  template: ` <ng-content></ng-content> `,
-  styles: [],
+    selector: 'ngx-dom-confetti',
+    template: ` <ng-content></ng-content> `,
+    styles: [],
+    standalone: false
 })
 export class NgxDomConfettiComponent {
 
