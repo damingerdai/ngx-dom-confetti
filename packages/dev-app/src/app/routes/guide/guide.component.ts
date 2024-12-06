@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({
-  selector: 'app-guide',
-  templateUrl: './guide.component.html',
-  styleUrls: ['./guide.component.scss'],
-  imports: [
-    CommonModule,
-    SharedModule,
-  ],
-  standalone: true,
+    selector: 'app-guide',
+    templateUrl: './guide.component.html',
+    styleUrls: ['./guide.component.scss'],
+    imports: [
+        CommonModule,
+        SharedModule,
+    ]
 })
 export class GuideComponent {
 

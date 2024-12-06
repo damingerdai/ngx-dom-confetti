@@ -2,7 +2,8 @@ import { AfterViewInit, Directive, ElementRef, SecurityContext } from '@angular/
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Directive({
-  selector: 'code[highlight]',
+    selector: 'code[highlight]',
+    standalone: false
 })
 export class HighlightCodeDirective implements AfterViewInit {
 

@@ -14,8 +14,9 @@ import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, defaultsConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
 @Directive({
-  selector: '[confetti], [ngxConfetti]',
-  exportAs: 'ngxConfetti',
+    selector: '[confetti], [ngxConfetti]',
+    exportAs: 'ngxConfetti',
+    standalone: false
 })
 export class NgxConfettiDirective {
 
