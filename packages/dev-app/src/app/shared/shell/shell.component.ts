@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     selector: 'app-shell',
     templateUrl: './shell.component.html',
     styleUrls: ['./shell.component.scss'],
-    standalone: false
+    
 })
 export class ShellComponent {
 
