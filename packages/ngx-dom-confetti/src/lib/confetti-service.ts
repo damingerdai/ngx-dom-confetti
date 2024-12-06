@@ -6,13 +6,12 @@ import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
 @Injectable()
 export class NgxDomConfettiService {
-
   private _confettiRenderer: ConfettiRenderer;
 
   private _globalConfig: ConfettiConfig;
 
   constructor(
-    @Optional() @Inject(DOCUMENT) document: any,
+    @Optional() @Inject(DOCUMENT) document: Document,
     @Inject(NGX_CONFETTI_GLOBAL_CONFIG) globalConfig: ConfettiConfig,
   ) {
     this._confettiRenderer = new ConfettiRenderer(document);
@@ -22,7 +21,7 @@ export class NgxDomConfettiService {
   public open(el: HTMLElement | ElementRef, config?: Partial<ConfettiConfig>) {
     this._confettiRenderer.launch(
       coerceElement(el),
-      config ?? this._globalConfig
+      config ?? this._globalConfig,
     );
   }
 }

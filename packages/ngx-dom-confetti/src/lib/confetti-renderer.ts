@@ -74,7 +74,7 @@ export class ConfettiRenderer {
   }
 
   private updateFetti(fetti: IFetti, progress: number, dragFriction: number, decay: number) {
-    /* eslint-disable no-param-reassign */
+     
     fetti.physics.x += Math.cos(fetti.physics.angle2D) * fetti.physics.velocity;
     fetti.physics.y += Math.sin(fetti.physics.angle2D) * fetti.physics.velocity;
     fetti.physics.z += Math.sin(fetti.physics.angle3D) * fetti.physics.velocity;
@@ -96,10 +96,10 @@ export class ConfettiRenderer {
     fetti.element.style.visibility = "visible";
     fetti.element.style.transform = transform;
     fetti.element.style.opacity = (1 - progress).toString();;
-    /* eslint-enable */
+     
   }
 
-  private animate(root: HTMLElement, fettis: Array<IFetti>, dragFriction: number, decay: number, duration: number, stagger: number) {
+  private animate(root: HTMLElement, fettis: IFetti[], dragFriction: number, decay: number, duration: number, stagger: number) {
     let startTime: number;
     let isActive = true;
 

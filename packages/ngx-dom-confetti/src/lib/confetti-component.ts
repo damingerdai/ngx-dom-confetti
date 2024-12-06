@@ -1,4 +1,8 @@
-import { BooleanInput, coerceBooleanProperty, coerceElement } from '@angular/cdk/coercion';
+import {
+  BooleanInput,
+  coerceBooleanProperty,
+  coerceElement,
+} from '@angular/cdk/coercion';
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Input, Optional } from '@angular/core';
 
@@ -6,13 +10,11 @@ import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
 @Component({
-    selector: 'ngx-dom-confetti',
-    template: ` <ng-content></ng-content> `,
-    styles: [],
-    standalone: false
+  selector: 'ngx-dom-confetti',
+  template: ` <ng-content></ng-content> `,
+  styles: [],
 })
 export class NgxDomConfettiComponent {
-
   private _confettiRenderer: ConfettiRenderer;
 
   private _config: Partial<ConfettiConfig>;
@@ -36,10 +38,13 @@ export class NgxDomConfettiComponent {
 
   constructor(
     private el: ElementRef,
-    @Optional() @Inject(DOCUMENT) document: any,
-    @Optional() @Inject(NGX_CONFETTI_GLOBAL_CONFIG) globalConfig?: ConfettiConfig) {
+    @Optional() @Inject(DOCUMENT) document: Document,
+    @Optional()
+    @Inject(NGX_CONFETTI_GLOBAL_CONFIG)
+    globalConfig?: ConfettiConfig,
+  ) {
     this._config = {
-      ...globalConfig
+      ...globalConfig,
     };
     this._confettiRenderer = new ConfettiRenderer(document);
     this._active = false;
