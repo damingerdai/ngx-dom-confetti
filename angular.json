@@ -114,7 +114,8 @@
             "lintFilePatterns": [
               "packages/dev-app/**/*.ts",
               "packages/dev-app/**/*.html"
-            ]
+            ],
+            "eslintConfig": "packages/dev-app/eslint.config.js"
           }
         }
       }
@@ -154,24 +155,14 @@
             "lintFilePatterns": [
               "packages/ngx-dom-confetti/**/*.ts",
               "packages/ngx-dom-confetti/**/*.html"
-            ]
+            ],
+            "eslintConfig": "packages/ngx-dom-confetti/eslint.config.js"
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "fd02fbaf-79f0-42b2-a764-edc3bac34768",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
-  },
-  "schematics": {
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
-    }
+    "analytics": "fd02fbaf-79f0-42b2-a764-edc3bac34768"
   }
 }
