@@ -24,7 +24,9 @@
               "base": "dist/dev-app"
             },
             "index": "packages/dev-app/src/index.html",
-            "polyfills": ["packages/dev-app/src/polyfills.ts"],
+            "polyfills": [
+              "packages/dev-app/src/polyfills.ts"
+            ],
             "tsConfig": "packages/dev-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -135,6 +137,16 @@
             "main": "packages/ngx-dom-confetti/src/test.ts",
             "tsConfig": "packages/ngx-dom-confetti/tsconfig.spec.json",
             "karmaConfig": "packages/ngx-dom-confetti/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/ngx-dom-confetti/**/*.ts",
+              "packages/ngx-dom-confetti/**/*.html"
+            ],
+            "eslintConfig": "packages/ngx-dom-confetti/eslint.config.js"
           }
         }
       }
