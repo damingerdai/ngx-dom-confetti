@@ -5,16 +5,9 @@ import { NgxDomConfettiComponent } from './confetti-component';
 import { NgxDomConfettiService } from './confetti-service';
 import { defaultsConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
-
 @NgModule({
-  declarations: [
-    NgxDomConfettiComponent,
-    NgxConfettiDirective,
-
-  ],
-  imports: [
-    CommonModule,
-  ],
+  declarations: [],
+  imports: [CommonModule, NgxDomConfettiComponent, NgxConfettiDirective],
   providers: [
     {
       provide: NGX_CONFETTI_GLOBAL_CONFIG,
@@ -22,13 +15,9 @@ import { defaultsConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
     },
     NgxDomConfettiService,
   ],
-  exports: [
-    NgxDomConfettiComponent,
-    NgxConfettiDirective
-  ]
+  exports: [NgxDomConfettiComponent, NgxConfettiDirective],
 })
 export class NgxDomConfettiModule {
-
   static forRoot(): ModuleWithProviders<NgxDomConfettiModule> {
     return {
       ngModule: NgxDomConfettiModule,
@@ -54,4 +43,4 @@ export class NgxDomConfettiModule {
       ],
     };
   }
- }
+}
