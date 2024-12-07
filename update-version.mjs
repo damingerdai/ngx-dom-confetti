@@ -18,8 +18,8 @@ const mainVersion = mainPackageJson.version;
 const packagesDir = path.join(__dirname, "packages");
 const packageJsonFiles = fs
   .readdirSync(packagesDir)
-  .filter((file) => file.endsWith("package.json"))
-  .map((file) => path.join(packagesDir, file));
+  .map((file) => path.join(packagesDir, file, "package.json"))
+  .filter((file) => fs.existsSync(file));
 
 // Update the version in each package.json
 packageJsonFiles.forEach((packageJsonPath) => {
