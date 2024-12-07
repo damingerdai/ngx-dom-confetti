@@ -8,7 +8,7 @@ describe('NgxDomConfettiComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxDomConfettiComponent ]
+      imports: [ NgxDomConfettiComponent ]
     })
     .compileComponents();
   });
