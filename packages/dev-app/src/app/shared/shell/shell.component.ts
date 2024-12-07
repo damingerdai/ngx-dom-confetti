@@ -3,19 +3,17 @@ import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-shell',
-    templateUrl: './shell.component.html',
-    styleUrls: ['./shell.component.scss'],
-    
+  selector: 'app-shell',
+  templateUrl: './shell.component.html',
+  styleUrls: ['./shell.component.scss'],
+  standalone: false,
 })
 export class ShellComponent {
-
   private clipboard: Clipboard = inject(Clipboard);
   private snackbar: MatSnackBar = inject(MatSnackBar);
 
   @ViewChild('code', { static: true })
   protected codeEl!: ElementRef<HTMLElement>;
-
 
   public copy() {
     if (this.codeEl) {
@@ -24,5 +22,4 @@ export class ShellComponent {
       this.snackbar.open('Code copied');
     }
   }
-
 }
