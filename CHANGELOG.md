@@ -4,7 +4,6 @@
 
 - add standalone support ([#107](https://github.com/damingerdai/ngx-dom-confetti/issues/107)) ([960bc21](https://github.com/damingerdai/ngx-dom-confetti/commit/960bc21ff362c8484108732554161c854f685357))
 - bump angular eslint v19 and eslint v9 ([#102](https://github.com/damingerdai/ngx-dom-confetti/issues/102)) ([e8fe534](https://github.com/damingerdai/ngx-dom-confetti/commit/e8fe5341335a771d8eee631892e039c45149dff1))
-- bump angular to 18.2 ([1f840fa](https://github.com/damingerdai/ngx-dom-confetti/commit/1f840fa3fa60a993d98c6a2e8bde6ffd03971832))
 - bump angular to v19 ([#98](https://github.com/damingerdai/ngx-dom-confetti/issues/98)) ([94962b2](https://github.com/damingerdai/ngx-dom-confetti/commit/94962b2fdc2fb7a481ede27b2f82ee1cf22f6d26))
 
 ## [0.4.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.4.0...v0.4.1) (2024-09-03)
