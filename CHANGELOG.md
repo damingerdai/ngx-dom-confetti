@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.5.0...v0.5.1) (2024-12-30)
+
+
+### Features
+
+* bump angular from 19.0.3 to 19.0.5 ([0032c09](https://github.com/damingerdai/ngx-dom-confetti/commit/0032c09a98ee84c7333e5f887148ad3cc3306765))
+
+
+
 # [0.5.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.4.1...v0.5.0) (2024-12-07)
 
 ### Features
