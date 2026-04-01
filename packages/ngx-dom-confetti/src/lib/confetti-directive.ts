@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 
-import { Directive, ElementRef, Inject, NgZone, Optional, DOCUMENT } from '@angular/core';
+import { Directive, ElementRef, NgZone, DOCUMENT, inject } from '@angular/core';
 import { ConfettiRenderer } from './confetti-renderer';
 import {
   ConfettiConfig,
@@ -13,19 +13,20 @@ import {
   exportAs: 'ngxConfetti',
 })
 export class NgxConfettiDirective {
+  private _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private ngZone = inject(NgZone);
+  private platform = inject(Platform);
+
   private _globalConfig: ConfettiConfig;
 
   private _confettiRenderer: ConfettiRenderer;
 
-  constructor(
-    private _elementRef: ElementRef<HTMLElement>,
-    private ngZone: NgZone,
-    private platform: Platform,
-    @Optional() @Inject(DOCUMENT) document: Document,
-    @Optional()
-    @Inject(NGX_CONFETTI_GLOBAL_CONFIG)
-    globalConfig?: ConfettiConfig,
-  ) {
+  constructor() {
+    const document = inject<Document>(DOCUMENT, { optional: true })!;
+    const globalConfig = inject<ConfettiConfig>(NGX_CONFETTI_GLOBAL_CONFIG, {
+      optional: true,
+    });
+
     this._globalConfig = (globalConfig ||
       defaultsConfettiConfig) as ConfettiConfig;
     this._confettiRenderer = new ConfettiRenderer(document);

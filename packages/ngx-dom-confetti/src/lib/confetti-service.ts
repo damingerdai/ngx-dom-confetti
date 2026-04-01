@@ -1,6 +1,6 @@
 import { coerceElement } from '@angular/cdk/coercion';
 
-import { ElementRef, Inject, Injectable, Optional, DOCUMENT } from '@angular/core';
+import { ElementRef, Injectable, DOCUMENT, inject } from '@angular/core';
 import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 
@@ -10,10 +10,10 @@ export class NgxDomConfettiService {
 
   private _globalConfig: ConfettiConfig;
 
-  constructor(
-    @Optional() @Inject(DOCUMENT) document: Document,
-    @Inject(NGX_CONFETTI_GLOBAL_CONFIG) globalConfig: ConfettiConfig,
-  ) {
+  constructor() {
+    const document = inject<Document>(DOCUMENT, { optional: true })!;
+    const globalConfig = inject<ConfettiConfig>(NGX_CONFETTI_GLOBAL_CONFIG);
+
     this._confettiRenderer = new ConfettiRenderer(document);
     this._globalConfig = globalConfig;
   }

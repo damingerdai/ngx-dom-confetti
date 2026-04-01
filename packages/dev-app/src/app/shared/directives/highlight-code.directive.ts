@@ -3,6 +3,7 @@ import {
   Directive,
   ElementRef,
   SecurityContext,
+  inject,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -11,10 +12,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   standalone: false,
 })
 export class HighlightCodeDirective implements AfterViewInit {
-  constructor(
-    private el: ElementRef,
-    private sanitizer: DomSanitizer,
-  ) {}
+  private el = inject(ElementRef);
+  private sanitizer = inject(DomSanitizer);
 
   ngAfterViewInit() {
     import('highlight.js').then((m) => {
