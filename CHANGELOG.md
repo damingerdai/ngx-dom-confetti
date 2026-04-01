@@ -1,3 +1,13 @@
+# [0.6.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.5.1...v0.6.0) (2026-04-01)
+
+
+### Features
+
+* bump angular to v20 ([3501ddb](https://github.com/damingerdai/ngx-dom-confetti/commit/3501ddb8db6533f32b9bee2d06058ecc1a9821ff))
+* using the inject() function over constructor parameter injection ([1233f74](https://github.com/damingerdai/ngx-dom-confetti/commit/1233f74120f3509f9b16b884f30ae514cc22cf19))
+
+
+
 ## [0.5.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.5.0...v0.5.1) (2024-12-30)
 
 
