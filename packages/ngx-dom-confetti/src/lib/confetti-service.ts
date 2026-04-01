@@ -1,6 +1,6 @@
 import { coerceElement } from '@angular/cdk/coercion';
-import { DOCUMENT } from '@angular/common';
-import { ElementRef, Inject, Injectable, Optional } from '@angular/core';
+
+import { ElementRef, Inject, Injectable, Optional, DOCUMENT } from '@angular/core';
 import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 

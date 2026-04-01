@@ -3,8 +3,8 @@ import {
   coerceBooleanProperty,
   coerceElement,
 } from '@angular/cdk/coercion';
-import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, Input, Optional } from '@angular/core';
+
+import { Component, ElementRef, Inject, Input, Optional, DOCUMENT } from '@angular/core';
 
 import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';

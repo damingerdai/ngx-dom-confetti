@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -7,9 +7,8 @@ import { SharedModule } from '../../shared/shared.module';
     templateUrl: './guide.component.html',
     styleUrls: ['./guide.component.scss'],
     imports: [
-        CommonModule,
-        SharedModule,
-    ]
+    SharedModule
+]
 })
 export class GuideComponent {
 

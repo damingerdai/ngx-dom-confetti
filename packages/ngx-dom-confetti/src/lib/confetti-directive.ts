@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
-import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, Inject, NgZone, Optional } from '@angular/core';
+
+import { Directive, ElementRef, Inject, NgZone, Optional, DOCUMENT } from '@angular/core';
 import { ConfettiRenderer } from './confetti-renderer';
 import {
   ConfettiConfig,

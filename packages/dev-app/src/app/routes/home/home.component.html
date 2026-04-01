@@ -116,14 +116,15 @@
         aria-labelledby="color-presets-radio-group-label"
         class="radio-group"
         formControlName="colors"
-      >
-        <mat-radio-button
-          class="radio-button"
-          *ngFor="let color of colorPresets"
-          [value]="color.value"
         >
-          {{ color.label }}
-        </mat-radio-button>
+        @for (color of colorPresets; track color) {
+          <mat-radio-button
+            class="radio-button"
+            [value]="color.value"
+            >
+            {{ color.label }}
+          </mat-radio-button>
+        }
       </mat-radio-group>
     </section>
   </form>
@@ -143,7 +144,7 @@
       mat-raised-button
       color="primary"
       (click)="hitWithService()"
-    >
+      >
       Hit Me with Service!
     </button>
   </div>
