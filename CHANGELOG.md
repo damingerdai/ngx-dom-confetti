@@ -1,3 +1,10 @@
+## 0.7.0 (2026-05-22)
+
+* chore: migrate to npm (#114) ([3ac85a9](https://github.com/damingerdai/ngx-dom-confetti/commit/3ac85a9)), closes [#114](https://github.com/damingerdai/ngx-dom-confetti/issues/114)
+* chore: release v0.6.0 ([389b8c4](https://github.com/damingerdai/ngx-dom-confetti/commit/389b8c4))
+* chore: update version scripts ([f1b002e](https://github.com/damingerdai/ngx-dom-confetti/commit/f1b002e))
+* feat: bump angular 21 ([8b767ff](https://github.com/damingerdai/ngx-dom-confetti/commit/8b767ff))
+* ci: bump node 24 ([43640b2](https://github.com/damingerdai/ngx-dom-confetti/commit/43640b2))
 # [0.6.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.5.1...v0.6.0) (2026-04-01)
 
 
