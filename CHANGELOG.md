@@ -1,3 +1,7 @@
+## <small>0.7.1 (2026-05-22)</small>
+
+* fix: ngx-dom-confetti peer depnedencies support @angular core v21 ([c9c8a6f](https://github.com/damingerdai/ngx-dom-confetti/commit/c9c8a6f))
+* chore: syns angualr version ([f1f72fa](https://github.com/damingerdai/ngx-dom-confetti/commit/f1f72fa))
 ## 0.7.0 (2026-05-22)
 
 * chore: migrate to npm (#114) ([3ac85a9](https://github.com/damingerdai/ngx-dom-confetti/commit/3ac85a9)), closes [#114](https://github.com/damingerdai/ngx-dom-confetti/issues/114)
