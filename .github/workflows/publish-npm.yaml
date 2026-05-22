@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm install -g yarn
-      - run: yarn
-      - run: yarn lint
-      - run: yarn package
-      - run: yarn build
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run package
+      - run: npm run build
 
   publish-npm:
     needs: tests
@@ -28,9 +28,9 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm install -g yarn
-      - run: yarn
-      - run: yarn package
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run package
       - run: cd dist/ngx-dom-confetti && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
