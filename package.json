@@ -16,9 +16,9 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "version:patch": "npm version patch",
-    "version:minor": "npm version minor",
-    "version:major": "npm version major",
+    "version:patch": "npm version patch -m \"chore(release): v%s\"",
+    "version:minor": "npm version minor -m \"chore(release): v%s\"",
+    "version:major": "npm version major -m \"chore(release): v%s\"",
     "analyze": "ng build dev-app --configuration production --stats-json && webpack-bundle-analyzer dist/dev-app/stats.json"
   },
   "private": true,
