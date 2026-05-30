@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "^21.2.14",
     "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^21.0.0",
-    "@types/jasmine": "~4.6.0",
+    "@types/jasmine": "~6.0.0",
     "@types/node": "^20.4.0",
     "angular-eslint": "21.4.0",
     "conventional-changelog-cli": "^5.0.0",
