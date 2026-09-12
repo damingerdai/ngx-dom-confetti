@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfettiConfig, NgxDomConfettiModule, NgxDomConfettiService } from 'ngx-dom-confetti';
 import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-directive';
@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     NgxDomConfettiModule,
     SharedModule

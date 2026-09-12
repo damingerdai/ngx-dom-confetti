@@ -4,7 +4,7 @@ import {
   coerceElement,
 } from '@angular/cdk/coercion';
 
-import { Component, ElementRef, Input, DOCUMENT, inject } from '@angular/core';
+import { Component, ElementRef, Input, DOCUMENT, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
@@ -12,6 +12,7 @@ import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 @Component({
   selector: 'ngx-dom-confetti',
   template: ` <ng-content></ng-content> `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [],
 })
 export class NgxDomConfettiComponent {
