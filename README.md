@@ -66,8 +66,22 @@ use `ngx-dom-confetti`
 
 ## Releasing
 
-Use Node.js 24.15 or newer within the 24.x line and npm. The release workflow keeps
-using the repository's `NPM_TOKEN` secret.
+Use Node.js 24.15 or newer within the 24.x line and npm. The release workflow uses
+[npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) with GitHub
+Actions OIDC instead of an `NPM_TOKEN` secret. Publishing requires npm 11.5.1 or newer.
+
+Before the first OIDC release, configure a GitHub Actions trusted publisher in the
+`ngx-dom-confetti` package settings on npmjs.com:
+
+- Organization or user: `damingerdai`
+- Repository: `ngx-dom-confetti`
+- Workflow filename: `publish-npm.yaml` (without `.github/workflows/`)
+- Environment name: leave empty, since the publishing job has no environment.
+- Allowed actions: allow direct publishing with `npm publish`.
+
+The publishing job grants `id-token: write` on a GitHub-hosted runner. After a
+successful OIDC release, remove the unused repository `NPM_TOKEN` secret and revoke
+the old npm token if no other workflow uses it.
 
 ### Manual release (recommended)
 
