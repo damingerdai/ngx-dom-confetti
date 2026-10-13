@@ -1,3 +1,16 @@
+# [0.8.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.7.1...v0.8.0) (2026-10-13)
+
+
+### Bug Fixes
+
+* prevent duplicate releases when pushing tags with PAT ([401bc4f](https://github.com/damingerdai/ngx-dom-confetti/commit/401bc4ffca60379aabe8f3ad76f8b4165f8b0306))
+* remove deprecated TypeScript baseUrl option ([0f13bde](https://github.com/damingerdai/ngx-dom-confetti/commit/0f13bdea67d27881d7fa23089422bfe8bb84b210))
+
+
+### Features
+
+* add manual versioned npm releases and release validation ([8e97700](https://github.com/damingerdai/ngx-dom-confetti/commit/8e97700ecd95e4b3e540e8a58cf5787d60f58fea))
+* bump angular 22 ([57c0cd7](https://github.com/damingerdai/ngx-dom-confetti/commit/57c0cd7db09ee960b829bb7f4339e422ffd770cb))
 ## <small>0.7.1 (2026-05-22)</small>
 
 * fix: ngx-dom-confetti peer depnedencies support @angular core v21 ([c9c8a6f](https://github.com/damingerdai/ngx-dom-confetti/commit/c9c8a6f))
