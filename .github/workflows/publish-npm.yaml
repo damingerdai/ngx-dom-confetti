@@ -1,66 +1,136 @@
-name: Node.js Package
+name: Publish to npm
 
 on:
+  workflow_dispatch:
+    inputs:
+      strategy:
+        description: Version bump (0.7.1 → minor → 0.8.0)
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
   push:
     tags:
-      - v*
+      - 'v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-release
+  cancel-in-progress: false
 
 jobs:
-  tests:
+  prepare:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm'
+          cache: npm
+      - name: Validate release source
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+        run: |
+          if [ "$EVENT" = workflow_dispatch ] && [ "$REF" != refs/heads/master ]; then
+            echo 'Manual releases must run from master.' >&2
+            exit 1
+          fi
+          if [ "$EVENT" = workflow_dispatch ] && [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+            echo 'master advanced since dispatch; start a new release run.' >&2
+            exit 1
+          fi
+          git merge-base --is-ancestor HEAD origin/master
       - run: npm ci
+      - name: Prepare version commit and tag
+        id: version
+        env:
+          EVENT: ${{ github.event_name }}
+          STRATEGY: ${{ inputs.strategy }}
+          REF_NAME: ${{ github.ref_name }}
+          HUSKY: '0'
+        run: |
+          if [ "$EVENT" = workflow_dispatch ]; then
+            case "$STRATEGY" in patch|minor|major) ;; *) exit 1 ;; esac
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            npm version "$STRATEGY" -m 'chore(release): v%s'
+            TAG="v$(node -p 'require("./package.json").version')"
+          else
+            TAG="$REF_NAME"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
       - run: npm run lint
+      - run: npm run test:release
+      - run: npm run test:ci
       - run: npm run package
       - run: npm run build
+      - name: Verify versions and extract release notes
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          npm run release:check -- "$RELEASE_TAG"
+          npm run release:notes
+      - name: Pack once
+        run: |
+          npm pack ./dist/ngx-dom-confetti --pack-destination dist --json > dist/pack.json
+          node --input-type=module -e 'import fs from "node:fs"; const [pack] = JSON.parse(fs.readFileSync("dist/pack.json")); fs.renameSync(`dist/${pack.filename}`, "dist/ngx-dom-confetti.tgz");'
+      - run: npm run test:package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-release
+          path: |
+            dist/ngx-dom-confetti.tgz
+            dist/release-notes.md
+          if-no-files-found: error
+      - name: Push validated version commit and tag
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: git push --atomic origin HEAD:refs/heads/master "refs/tags/$RELEASE_TAG"
 
   publish-npm:
-    needs: tests
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: npm-release
+          path: release
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run package
-      - run: cd dist/ngx-dom-confetti && npm publish
+      - run: npm publish ./release/ngx-dom-confetti.tgz --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   release:
-    needs: publish-npm
-    name: Create Release
+    needs: [prepare, publish-npm]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install Conventional Changelog CLI
-        run: npm install -g conventional-changelog-cli
-      - name: Genterate Changelog
-        id: changelog
-        run: |
-          git fetch origin --prune
-          git fetch --tags --force
-          LAST_TAG=$(git describe --tags --abbrev=0 $(git rev-list --tags --skip=1 --max-count=1))
-          conventional-changelog -p angular -o --commit-path . --release-count 2 --tag-prefix v | sed '/^# \[0.0.0\]/,+2d' > CHANGELOG.md
-          echo "CHANGLOG_CONTENT<<EOF" >> $GITHUB_ENV
-          cat CHANGELOG.md >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-        shell: bash
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+      - uses: actions/download-artifact@v4
         with:
-          tag_name: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}
-          body: ${{ env.CHANGLOG_CONTENT }}
+          name: npm-release
+          path: release
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.prepare.outputs.tag }}
+          name: ${{ needs.prepare.outputs.tag }}
+          body_path: release/release-notes.md
+          files: release/ngx-dom-confetti.tgz
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

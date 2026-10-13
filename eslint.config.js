@@ -15,6 +15,8 @@ module.exports = tseslint.config(
     processor: angular.processInlineTemplates,
     rules: {
       "@angular-eslint/prefer-standalone": ["warn"],
+      // Keep the existing Eager behavior until components are migrated to OnPush.
+      "@angular-eslint/prefer-on-push-component-change-detection": ["warn"],
     },
   },
   {

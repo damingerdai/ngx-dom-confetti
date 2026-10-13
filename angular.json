@@ -72,7 +72,10 @@
               "aot": false,
               "optimization": false,
               "extractLicenses": false,
-              "polyfills": "packages/dev-app/src/polyfills.ts"
+              "polyfills": [
+                "zone.js",
+                "zone.js/testing"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -105,9 +108,6 @@
             "coverageReporters": [
               "html",
               "text-summary"
-            ],
-            "setupFiles": [
-              "packages/dev-app/src/test.ts"
             ],
             "buildTarget": ":build:testing",
             "runner": "vitest"

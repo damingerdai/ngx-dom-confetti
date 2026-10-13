@@ -1,3 +1,4 @@
+import { NgxDomConfettiService, provideConfetti } from 'ngx-dom-confetti';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
@@ -8,7 +9,8 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent]
+      imports: [HomeComponent],
+      providers: [NgxDomConfettiService, provideConfetti()]
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;

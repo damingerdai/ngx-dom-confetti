@@ -2,7 +2,7 @@
 import { Component, ElementRef, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfettiConfig, NgxDomConfettiModule, NgxDomConfettiService } from 'ngx-dom-confetti';
-import { NgxConfettiDirective } from 'ngx-dom-confetti/confetti-directive';
+import { NgxConfettiDirective } from 'ngx-dom-confetti';
 import { SharedModule } from '../../shared/shared.module';
 
 @Component({

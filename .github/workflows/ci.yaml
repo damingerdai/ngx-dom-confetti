@@ -32,5 +32,9 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
+      - name: Release script tests
+        run: npm run test:release
+      - name: Unit tests
+        run: npm run test:ci
       - name: Build
         run: npm run package && npm run build

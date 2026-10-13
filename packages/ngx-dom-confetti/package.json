@@ -1,6 +1,6 @@
 {
   "name": "ngx-dom-confetti",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "license": "MIT",
   "keywords": [
     "dom-confetti",
@@ -16,10 +16,15 @@
   },
   "homepage": "https://github.com/damingerdai/ngx-dom-confetti",
   "peerDependencies": {
-    "@angular/common": "^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
-    "@angular/core": "^14.0.0|| ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0"
+    "@angular/common": "^22.1.6",
+    "@angular/core": "^22.1.6",
+    "@angular/cdk": "^22.1.6"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damingerdai/ngx-dom-confetti.git"
   }
 }

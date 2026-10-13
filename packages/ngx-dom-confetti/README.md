@@ -2,6 +2,11 @@
 
 [Dom Confetti](https://www.npmjs.com/package/dom-confetti) for Angular
 
+## Compatibility
+
+The upcoming 0.8.0 release supports Angular and Angular CDK `^22.1.6`.
+Older Angular versions should use a compatible earlier library release.
+
 # Install
 
 for npm user

@@ -25,7 +25,7 @@ const packageJsonFiles = fs
 packageJsonFiles.forEach((packageJsonPath) => {
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
   packageJson.version = mainVersion;
-  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + "\n");
 });
 
 console.log(`Version ${mainVersion} sync completed.`);
