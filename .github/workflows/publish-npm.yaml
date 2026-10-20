@@ -118,19 +118,9 @@ jobs:
 
   release:
     needs: [prepare, publish-npm]
-    runs-on: ubuntu-latest
     permissions:
       contents: write
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: npm-release
-          path: release
-      - uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ needs.prepare.outputs.tag }}
-          name: ${{ needs.prepare.outputs.tag }}
-          body_path: release/release-notes.md
-          files: release/ngx-dom-confetti.tgz
-          draft: false
-          prerelease: false
+    uses: ./.github/workflows/create-release.yaml
+    with:
+      tag: ${{ needs.prepare.outputs.tag }}
+      artifact_name: npm-release

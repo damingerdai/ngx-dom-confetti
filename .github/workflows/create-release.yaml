@@ -1,0 +1,142 @@
+name: Create GitHub Release
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+      artifact_name:
+        description: 'Optional artifact containing the npm package to attach'
+        required: false
+        default: ''
+        type: string
+
+  push:
+    tags:
+      - 'v*'
+
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing release tag, e.g. v0.3.0 or v0.3.0-beta.1'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: github-release-${{ inputs.tag || github.ref_name }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Resolve Tag
+        id: tag
+        shell: bash
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          if [ -n "$INPUT_TAG" ]; then
+            TAG="$INPUT_TAG"
+          else
+            TAG="$REF_NAME"
+          fi
+
+          # SemVer: numeric prerelease identifiers cannot have leading zeroes.
+          NUMBER='(0|[1-9][0-9]*)'
+          IDENTIFIER='(0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)'
+          VERSION_PATTERN="^v${NUMBER}\\.${NUMBER}\\.${NUMBER}(-${IDENTIFIER}(\\.${IDENTIFIER})*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+          if [[ ! "$TAG" =~ $VERSION_PATTERN ]]; then
+            echo '::error::Expected a v-prefixed SemVer tag, e.g. v0.3.0 or v0.3.0-beta.1.'
+            exit 1
+          fi
+
+          # A hyphen in build metadata alone does not indicate a prerelease.
+          VERSION_WITHOUT_BUILD="${TAG%%+*}"
+          PRERELEASE=false
+          if [[ "$VERSION_WITHOUT_BUILD" == *-* ]]; then
+            PRERELEASE=true
+          fi
+
+          printf 'tag=%s\n' "$TAG" >> "$GITHUB_OUTPUT"
+          printf 'prerelease=%s\n' "$PRERELEASE" >> "$GITHUB_OUTPUT"
+          printf 'Using tag: %s\n' "$TAG"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # An explicit tag ref prevents a same-named branch from being used.
+          # Checkout fails here if the remote tag does not exist.
+          ref: refs/tags/${{ steps.tag.outputs.tag }}
+          fetch-depth: 0
+
+      - name: Verify Tag
+        shell: bash
+        env:
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -euo pipefail
+
+          if ! TAG_COMMIT=$(git rev-parse --verify "refs/tags/${TAG}^{commit}"); then
+            echo '::error::The requested tag does not exist or does not point to a commit.'
+            exit 1
+          fi
+
+          if [ "$TAG_COMMIT" != "$(git rev-parse HEAD)" ]; then
+            echo '::error::The checked-out commit does not match the requested tag.'
+            exit 1
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Changelog
+        run: |
+          set -euo pipefail
+          # HEAD is already tagged: include the previous tag-to-HEAD range.
+          # A count of 1 only reads commits after the latest tag and is empty here.
+          npm exec -- conventional-changelog \
+            -p angular \
+            --commit-path . \
+            --release-count 2 \
+            --tag-prefix v \
+            > RELEASE_NOTES.md
+
+          if ! grep -q '[^[:space:]]' RELEASE_NOTES.md; then
+            echo '::error::Generated release notes are empty. Check the release tag and commit range.'
+            exit 1
+          fi
+
+          echo "Release notes:"
+          cat RELEASE_NOTES.md
+
+      - name: Download npm package
+        if: inputs.artifact_name != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: release
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.tag }}
+          body_path: RELEASE_NOTES.md
+          files: ${{ inputs.artifact_name != '' && 'release/ngx-dom-confetti.tgz' || '' }}
+          fail_on_unmatched_files: true
+          draft: false
+          prerelease: ${{ steps.tag.outputs.prerelease == 'true' }}
