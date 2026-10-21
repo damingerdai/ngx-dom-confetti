@@ -1,3 +1,18 @@
+## [0.8.1](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.8.0...v0.8.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* disable confetti perspective when playground value is zero ([917da59](https://github.com/damingerdai/ngx-dom-confetti/commit/917da59b31caeb762960adfacfb7882f967147dd))
+
+
+### Features
+
+* add API reference page to dev-app ([ff2f1c3](https://github.com/damingerdai/ngx-dom-confetti/commit/ff2f1c303f1adea85e69810e65cddf5eeb3182ea))
+* bump angular 22 ([1909aea](https://github.com/damingerdai/ngx-dom-confetti/commit/1909aeaa58a55d5313844fcd98ad883d31a7b6b6))
+* bump angular eslint from 22.5.0 to 22.6.0 ([e96cdbb](https://github.com/damingerdai/ngx-dom-confetti/commit/e96cdbb5344073d5172c0c8bef291660ce5c5686))
+* migrate to angular signal ([fe6f042](https://github.com/damingerdai/ngx-dom-confetti/commit/fe6f042fc78ea5708a2d92450666fc456a0126e4))
+* redesign dev-app with Material 3 and OnPush ([a5d9ab1](https://github.com/damingerdai/ngx-dom-confetti/commit/a5d9ab1d687185469f57b9f9965b80d245fb663e))
 # [0.8.0](https://github.com/damingerdai/ngx-dom-confetti/compare/v0.7.1...v0.8.0) (2026-10-13)
 
 
