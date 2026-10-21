@@ -1,5 +1,6 @@
 
-import { Component, ElementRef, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, inject, computed, signal, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfettiConfig, NgxDomConfettiModule, NgxDomConfettiService } from 'ngx-dom-confetti';
 import { NgxConfettiDirective } from 'ngx-dom-confetti';
@@ -19,13 +20,9 @@ export class HomeComponent {
 
   fb: FormBuilder = inject(FormBuilder);
   ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
-  config!: Partial<ConfettiConfig>;
-  @ViewChild('btn', { read: ElementRef })
-  btn!: ElementRef<HTMLButtonElement>;
-
-  @ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
-
-  active: boolean;
+  readonly btn = viewChild.required<unknown, ElementRef<HTMLButtonElement>>('btn', { read: ElementRef });
+  readonly confettiDirective = viewChild(NgxConfettiDirective);
+  readonly active = signal(false);
 
   colorPresets = [
     {
@@ -60,37 +57,38 @@ export class HomeComponent {
     colors: [this.colorPresets[0].value]
   });
 
-  constructor() {
-    this.form.valueChanges.subscribe((config) => {
-      this.config = {
-        ...config,
-        width: config.width + 'px',
-        height: config.height + 'px',
-        perspective: config.perspective + 'px'
-      }
-    });
+  private readonly formValue = toSignal(this.form.valueChanges, {
+    initialValue: this.form.getRawValue(),
+  });
 
-    this.active = false;
-  }
+  readonly config = computed<Partial<ConfettiConfig>>(() => {
+    const config = this.formValue();
+    return {
+      ...config,
+      width: config.width + 'px',
+      height: config.height + 'px',
+      perspective: config.perspective + 'px',
+    };
+  });
 
   hitWithOutService() {
-    this.active = true;
+    this.active.set(true);
 
     setTimeout(() => {
-      this.active = false;
+      this.active.set(false);
     }, 10);
   }
 
   hitWithService() {
-    const el = this.btn.nativeElement.children.item(0) as HTMLElement;
+    const el = this.btn().nativeElement.children.item(0) as HTMLElement;
     if (el) {
-      this.ngxDomConfettiService.open(el, this.config);
+      this.ngxDomConfettiService.open(el, this.config());
     }
 
   }
 
   hitWithDirective() {
-    this.confettiDirective?.launch();
+    this.confettiDirective()?.launch();
   }
 
 }

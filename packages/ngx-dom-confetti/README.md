@@ -52,6 +52,29 @@ export class AppModule { }
 
 use `ngx-dom-confetti`
 
+The component's `active` and `config` inputs are readonly signals. Template
+bindings keep the same names; call signals when passing values from a parent:
+
+```html
+<ngx-dom-confetti [active]="active()" [config]="config()">
+  <button (click)="active.set(true)">Celebrate</button>
+</ngx-dom-confetti>
+```
+
+Initialize parent state with `active = signal(false)` and
+`config = signal<Partial<ConfettiConfig>>({ elementCount: 50 })`, importing
+`signal` from `@angular/core` and `ConfettiConfig` from `ngx-dom-confetti`.
+Set `active` to false and let Angular render before setting it to true again
+for another burst. Launching happens after rendering in the browser.
+Configuration updates merge into the previous configuration and do not launch
+a burst by themselves.
+
+For programmatic input updates, use Angular bindings or
+`componentRef.setInput('active', true)` instead of assigning to the component's
+input properties. Read component inputs with `component.active()` and
+`component.config()`.
+
+
 ## component:
 
 ```html

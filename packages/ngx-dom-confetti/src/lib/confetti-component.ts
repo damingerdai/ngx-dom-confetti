@@ -1,10 +1,14 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
-  BooleanInput,
-  coerceBooleanProperty,
-  coerceElement,
-} from '@angular/cdk/coercion';
-
-import { Component, ElementRef, Input, DOCUMENT, inject, ChangeDetectionStrategy } from '@angular/core';
+  afterRenderEffect,
+  ChangeDetectionStrategy,
+  Component,
+  DOCUMENT,
+  ElementRef,
+  inject,
+  input,
+  untracked,
+} from '@angular/core';
 
 import { ConfettiRenderer } from './confetti-renderer';
 import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
@@ -12,43 +16,29 @@ import { ConfettiConfig, NGX_CONFETTI_GLOBAL_CONFIG } from './config';
 @Component({
   selector: 'ngx-dom-confetti',
   template: ` <ng-content></ng-content> `,
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [],
 })
 export class NgxDomConfettiComponent {
-  private el = inject(ElementRef);
+  private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly renderer = new ConfettiRenderer(inject(DOCUMENT));
+  private configSnapshot: Partial<ConfettiConfig> = {
+    ...inject(NGX_CONFETTI_GLOBAL_CONFIG, { optional: true }),
+  };
 
-  private _confettiRenderer: ConfettiRenderer;
-
-  private _config: Partial<ConfettiConfig>;
-
-  private _active: boolean;
-
-  @Input()
-  public set config(_config: Partial<ConfettiConfig>) {
-    if (_config) {
-      this._config = Object.assign(this._config, _config);
-    }
-  }
-
-  @Input()
-  public set active(_active: BooleanInput) {
-    this._active = coerceBooleanProperty(_active);
-    if (this._active) {
-      this._confettiRenderer.launch(coerceElement(this.el), this._config);
-    }
-  }
+  readonly config = input<Partial<ConfettiConfig> | null>();
+  readonly active = input(false, { transform: coerceBooleanProperty });
 
   constructor() {
-    const document = inject<Document>(DOCUMENT, { optional: true })!;
-    const globalConfig = inject<ConfettiConfig>(NGX_CONFETTI_GLOBAL_CONFIG, {
-      optional: true,
+    let wasActive = false;
+    afterRenderEffect(() => {
+      // Retain the existing cumulative partial-configuration behavior.
+      this.configSnapshot = { ...this.configSnapshot, ...this.config() };
+      const active = this.active();
+      if (active && !wasActive) {
+        untracked(() => this.renderer.launch(this.el.nativeElement, this.configSnapshot));
+      }
+      wasActive = active;
     });
-
-    this._config = {
-      ...globalConfig,
-    };
-    this._confettiRenderer = new ConfettiRenderer(document);
-    this._active = false;
   }
 }

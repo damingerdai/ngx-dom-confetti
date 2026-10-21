@@ -132,7 +132,7 @@
   <p confetti>confetti</p>
   <div class="center">
     <button mat-raised-button color="primary" (click)="hitWithOutService()">
-      <ngx-dom-confetti [config]="config" [active]="active">
+      <ngx-dom-confetti [config]="config()" [active]="active()">
         Hit Me!
       </ngx-dom-confetti>
     </button>
