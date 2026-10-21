@@ -8,14 +8,14 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [HomeComponent],
       providers: [NgxDomConfettiService, provideConfetti()]
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
@@ -66,7 +66,6 @@ describe('HomeComponent', () => {
   });
 
   it('updates visible values with OnPush when the form changes', async () => {
-    fixture.autoDetectChanges();
     component.form.patchValue({ angle: 180 });
     await fixture.whenStable();
     const value: HTMLOutputElement = fixture.nativeElement.querySelector('output[for="angle"]');
@@ -81,6 +80,22 @@ describe('HomeComponent', () => {
     component.hitWithDirective();
     expect(serviceLaunch).toHaveBeenCalledWith(component.btn().nativeElement, component.config());
     expect(directiveLaunch).toHaveBeenCalledWith(component.config());
+  });
+
+  it('renders repeated component bursts and timer-driven resets without Zone.js', async () => {
+    expect('Zone' in globalThis).toBe(false);
+    component.form.patchValue({ elementCount: 3, duration: 100 });
+    await fixture.whenStable();
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('.stage button');
+    for (let burst = 0; burst < 2; burst++) {
+      button.click();
+      await fixture.whenStable();
+      expect(fixture.nativeElement.querySelectorAll('ngx-dom-confetti > div').length).toBe(3);
+      await new Promise(resolve => setTimeout(resolve, 150));
+      await fixture.whenStable();
+      expect(component.active()).toBe(false);
+      expect(fixture.nativeElement.querySelectorAll('ngx-dom-confetti > div').length).toBe(0);
+    }
   });
 
   it('resolves the service target and directive through signal queries', () => {

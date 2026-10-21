@@ -6,13 +6,13 @@ describe('GuideComponent', () => {
   let component: GuideComponent;
   let fixture: ComponentFixture<GuideComponent>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [GuideComponent]
     });
     fixture = TestBed.createComponent(GuideComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

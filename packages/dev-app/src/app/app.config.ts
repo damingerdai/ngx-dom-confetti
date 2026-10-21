@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from "@angular/core";
+import { ApplicationConfig, importProvidersFrom, provideZonelessChangeDetection } from "@angular/core";
 import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from "@angular/router";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from "./app.routes";
@@ -7,6 +7,7 @@ import { NgxDomConfettiModule } from "ngx-dom-confetti";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZonelessChangeDetection(),
     provideAnimationsAsync(),
     provideRouter(
         routes,

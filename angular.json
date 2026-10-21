@@ -24,9 +24,7 @@
               "base": "dist/dev-app"
             },
             "index": "packages/dev-app/src/index.html",
-            "polyfills": [
-              "packages/dev-app/src/polyfills.ts"
-            ],
+            "polyfills": [],
             "tsConfig": "packages/dev-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -73,10 +71,7 @@
               "aot": false,
               "optimization": false,
               "extractLicenses": false,
-              "polyfills": [
-                "zone.js",
-                "zone.js/testing"
-              ]
+              "polyfills": []
             }
           },
           "defaultConfiguration": "production"

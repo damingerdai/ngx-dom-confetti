@@ -9,7 +9,7 @@ describe('AppComponent', () => {
       providers: [provideRouter([])],
     }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
+    await fixture.whenStable();
     const element: HTMLElement = fixture.nativeElement;
     expect(element.querySelector('app-nav-bar')).toBeTruthy();
     expect(element.querySelector('router-outlet')).toBeTruthy();
