@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { afterEach, vi } from 'vitest';
 
 import { ConfettiRenderer } from './confetti-renderer';
 import { NGX_CONFETTI_GLOBAL_CONFIG } from './config';
@@ -8,6 +9,10 @@ import { NgxDomConfettiComponent } from './confetti-component';
 describe('NgxDomConfettiComponent', () => {
   let component: NgxDomConfettiComponent;
   let fixture: ComponentFixture<NgxDomConfettiComponent>;
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -28,19 +33,20 @@ describe('NgxDomConfettiComponent', () => {
   });
 
   it('launches after activation with all inputs applied, regardless of input order', async () => {
-    const launch = spyOn(ConfettiRenderer.prototype, 'launch');
+    const launch = vi.spyOn(ConfettiRenderer.prototype, 'launch');
     fixture.componentRef.setInput('active', true);
     fixture.componentRef.setInput('config', { elementCount: 12 });
     await fixture.whenStable();
 
-    expect(launch).toHaveBeenCalledOnceWith(fixture.nativeElement, {
+    expect(launch).toHaveBeenCalledTimes(1);
+    expect(launch).toHaveBeenCalledWith(fixture.nativeElement, {
       spread: 70,
       elementCount: 12,
     });
   });
 
   it('retains partial configuration without relaunching until reactivated', async () => {
-    const launch = spyOn(ConfettiRenderer.prototype, 'launch');
+    const launch = vi.spyOn(ConfettiRenderer.prototype, 'launch');
     fixture.componentRef.setInput('config', { elementCount: 12 });
     fixture.componentRef.setInput('active', true);
     await fixture.whenStable();
@@ -62,7 +68,7 @@ describe('NgxDomConfettiComponent', () => {
   });
 
   it('coerces boolean inputs and ignores empty configuration', async () => {
-    const launch = spyOn(ConfettiRenderer.prototype, 'launch');
+    const launch = vi.spyOn(ConfettiRenderer.prototype, 'launch');
     fixture.componentRef.setInput('active', 'false');
     fixture.componentRef.setInput('config', null);
     await fixture.whenStable();
@@ -70,7 +76,8 @@ describe('NgxDomConfettiComponent', () => {
 
     fixture.componentRef.setInput('active', '');
     await fixture.whenStable();
-    expect(launch).toHaveBeenCalledOnceWith(fixture.nativeElement, { spread: 70 });
+    expect(launch).toHaveBeenCalledTimes(1);
+    expect(launch).toHaveBeenCalledWith(fixture.nativeElement, { spread: 70 });
   });
 
 });

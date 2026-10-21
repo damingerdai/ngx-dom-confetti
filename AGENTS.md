@@ -26,10 +26,10 @@ Use PascalCase for classes and camelCase for members. Follow nearby filenames: l
 
 ## Testing Guidelines
 
-The demo uses Vitest; the library uses Jasmine/Karma and requires Chrome. Run targeted suites:
+Both projects use Vitest. Run targeted suites:
 
 - `npm test -- dev-app --watch=false`
-- `npm test -- ngx-dom-confetti --watch=false --browsers=ChromeHeadless`
+- `npm test -- ngx-dom-confetti --watch=false`
 
 Add adjacent `*.spec.ts` tests for behavior changes, using Angular TestBed where appropriate. No minimum coverage threshold is configured. CI currently runs lint and both builds; run affected tests locally and report failures.
 

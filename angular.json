@@ -147,11 +147,10 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "packages/ngx-dom-confetti/src/test.ts",
             "tsConfig": "packages/ngx-dom-confetti/tsconfig.spec.json",
-            "karmaConfig": "packages/ngx-dom-confetti/karma.conf.js"
+            "runner": "vitest"
           }
         },
         "lint": {
