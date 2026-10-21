@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 
 - `packages/ngx-dom-confetti/src/lib/` contains the Angular confetti library: components, directives, service, renderer, and configuration. Export public APIs through `src/public-api.ts`.
-- `packages/dev-app/src/app/` contains the demo and usage guide; static assets live in `packages/dev-app/src/assets/`, with global styles in `src/styles.scss`.
+- `packages/dev-app/src/app/` contains the demo and usage guide; static assets live in `packages/dev-app/public/`, with global styles in `src/styles.scss`.
 - Tests sit beside source files as `*.spec.ts`. Workspace build targets are configured in `angular.json`; generated packages and application bundles go into `dist/`.
 
 ## Build, Test, and Development Commands

@@ -1,156 +1,41 @@
-<main class="content m-t-32">
-  <form [formGroup]="form">
-    <section class="w-full">
-      <p>angle</p>
-      <mat-slider
-        max="360"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="angle"
-        ><input formControlName="angle" matSliderThumb />
-      </mat-slider>
+<main id="main-content" tabindex="-1">
+  <header class="intro">
+    <p class="eyebrow">A little joy, built for Angular</p>
+    <h1 class="page-heading">Make moments pop.</h1>
+    <p class="page-description">Tune your confetti, find your colors, and give your next big moment a proper celebration.</p>
+  </header>
+  <div class="workspace">
+    <section class="settings" aria-labelledby="settings-title">
+      <div class="section-heading"><div><p class="eyebrow">Make it yours</p><h2 id="settings-title">Configuration</h2></div><span class="step">01</span></div>
+      <form [formGroup]="form">
+        <div class="controls">
+          @for (control of controls; track control.name) {
+            <div class="control">
+              <div class="control-label"><label [for]="control.name">{{ control.label }}</label><output [for]="control.name">{{ formValue()[control.name] }}{{ control.unit }}</output></div>
+              <mat-slider [max]="control.max" min="0" [step]="control.step" discrete>
+                <input [id]="control.name" [attr.aria-label]="control.label" [formControlName]="control.name" matSliderThumb />
+              </mat-slider>
+            </div>
+          }
+        </div>
+        <div class="palette-heading" id="color-presets-label">Color palette</div>
+        <mat-radio-group aria-labelledby="color-presets-label" formControlName="colors" class="palettes">
+          @for (color of colorPresets; track color.label) {
+            <mat-radio-button [value]="color.value"><span class="palette-name">{{ color.label }}</span><span class="swatches" aria-hidden="true">@for (swatch of color.value; track swatch) {<span [style.background]="swatch"></span>}</span></mat-radio-button>
+          }
+        </mat-radio-group>
+      </form>
     </section>
-    <section class="w-full">
-      <p>spread</p>
-      <mat-slider
-        max="360"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="spread"
-        ><input formControlName="spread" matSliderThumb />
-      </mat-slider>
+    <section class="preview" aria-labelledby="preview-title">
+      <div class="section-heading"><div><p class="eyebrow">See it in action</p><h2 id="preview-title">Your celebration starts here.</h2></div><span class="step">02</span></div>
+      <div class="stage">
+        <div class="celebration-mark" aria-hidden="true">✳</div>
+        <p>Small details. Big delight.</p>
+        <button mat-flat-button (click)="hitWithOutService()"><ngx-dom-confetti [config]="config()" [active]="active()">Launch confetti</ngx-dom-confetti></button>
+        <span class="hint">Click to celebrate. Repeat as needed.</span>
+      </div>
+      <div class="alternatives"><p>Three ways to bring the joy</p><div class="actions"><button #btn mat-stroked-button (click)="hitWithService()">Try service</button><button ngxConfetti mat-stroked-button (click)="hitWithDirective()">Try directive</button></div><span class="hint">All three demos use your current configuration.</span></div>
     </section>
-    <section class="w-full">
-      <p>startVelocity</p>
-      <mat-slider
-        max="100"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="startVelocity"
-        ><input formControlName="startVelocity" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>elementCount</p>
-      <mat-slider
-        max="200"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="elementCount"
-        ><input formControlName="elementCount" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>dragFriction</p>
-      <mat-slider
-        max="1"
-        min="0"
-        step="0.1"
-        thumbLabel="true"
-        aria-labelledby="dragFriction"
-        ><input formControlName="dragFriction" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>duration</p>
-      <mat-slider
-        max="30000"
-        min="0"
-        step="10"
-        thumbLabel="true"
-        aria-labelledby="duration"
-        ><input formControlName="duration" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>stagger</p>
-      <mat-slider
-        max="50"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="stagger"
-        ><input formControlName="stagger" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>width</p>
-      <mat-slider
-        max="100"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="width"
-        ><input formControlName="width" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>height</p>
-      <mat-slider
-        max="100"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="height"
-        ><input formControlName="height" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <p>perspective</p>
-      <mat-slider
-        max="1000"
-        min="0"
-        step="1"
-        thumbLabel="true"
-        aria-labelledby="perspective"
-        ><input formControlName="perspective" matSliderThumb />
-      </mat-slider>
-    </section>
-    <section class="w-full">
-      <label for="color-presets-radio-group-label">Color presets</label>
-      <mat-radio-group
-        aria-labelledby="color-presets-radio-group-label"
-        class="radio-group"
-        formControlName="colors"
-        >
-        @for (color of colorPresets; track color) {
-          <mat-radio-button
-            class="radio-button"
-            [value]="color.value"
-            >
-            {{ color.label }}
-          </mat-radio-button>
-        }
-      </mat-radio-group>
-    </section>
-  </form>
-
-  <p confetti>confetti</p>
-  <div class="center">
-    <button mat-raised-button color="primary" (click)="hitWithOutService()">
-      <ngx-dom-confetti [config]="config()" [active]="active()">
-        Hit Me!
-      </ngx-dom-confetti>
-    </button>
   </div>
-
-  <div class="center">
-    <button
-      #btn="matButton"
-      mat-raised-button
-      color="primary"
-      (click)="hitWithService()"
-      >
-      Hit Me with Service!
-    </button>
-  </div>
-  <div class="center">
-    <button mat-raised-button color="primary" (click)="hitWithDirective()">
-      Hit Me with Directive!
-    </button>
-  </div>
+  <footer>Made for the moments worth celebrating. <a href="https://github.com/damingerdai/ngx-dom-confetti">Explore the source ↗</a></footer>
 </main>

@@ -1,26 +1,4 @@
-:host {
-  position: relative;
-}
-
-.copy {
-  position: absolute;
-  right: 0;
-}
-
-pre {
-  border-radius: 5px;
-  display: block;
-  margin: 16px auto;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  font-size: 14px;
-  font-family: Roboto Mono, monospace;
-  background: rgba(0, 0, 0, 0.01);
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-
-  code {
-    background: transparent;
-    padding: 0;
-    font-size: 100%;
-  }
-}
+:host { display: block; position: relative; }
+.copy { position: absolute; right: 12px; top: 12px; }
+pre { border-radius: 20px; margin: 16px 0; padding: 24px 64px 24px 24px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.6 monospace; background: var(--mat-sys-surface-container); }
+code { background: transparent; padding: 0; }

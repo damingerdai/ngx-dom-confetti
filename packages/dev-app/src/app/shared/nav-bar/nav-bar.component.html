@@ -1,25 +1,8 @@
-<mat-toolbar color="primary">
-  <a mat-button aria-label="logo">
-    <img
-      class="logo"
-      src="../assets/angular-white-transparent.svg"
-      alt="ngx dom confetti logo"
-    />
-    <span>ngx dom confetti</span>
-  </a>
-  <a mat-button aria-label="navigate to guide view" routerLink="guide">
-    Guide
-  </a>
-  <a mat-button aria-label="navigate to home view" routerLink="home"> Demo </a>
-  <span class="spacer"></span>
-  <a
-    mat-icon-button
-    href="https://github.com/damingerdai/ngx-dom-confetti"
-    aria-label="Github Repository"
-  >
-    <img
-      src="../assets/github-circle-white-transparent.svg"
-      alt="ngx-dom-confetti"
-    />
-  </a>
-</mat-toolbar>
+<header>
+  <a class="brand" routerLink="/home" aria-label="ngx-dom-confetti home"><span class="brand-mark" aria-hidden="true">✳</span><span>ngx-dom-confetti</span></a>
+  <nav aria-label="Main navigation">
+    <a routerLink="/home" routerLinkActive="selected" ariaCurrentWhenActive="page">Playground</a>
+    <a routerLink="/guide" routerLinkActive="selected" ariaCurrentWhenActive="page">Guide</a>
+  </nav>
+  <a class="repository" href="https://github.com/damingerdai/ngx-dom-confetti">GitHub <span aria-hidden="true">↗</span></a>
+</header>

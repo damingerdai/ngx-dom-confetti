@@ -1,13 +1,8 @@
-mat-toolbar {
-  a[aria-label="logo"] {
-    .logo {
-      height: 26px;
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-  }
-
-  .spacer {
-    flex: 1 1 auto;
-  }
-}
+header { max-width: 1280px; margin: auto; padding: 20px 40px; display: flex; align-items: center; gap: 32px; }
+a { text-decoration: none; font-size: 14px; font-weight: 500; }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--mat-sys-on-surface); font-size: 18px; }
+.brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: var(--mat-sys-primary-container); color: var(--mat-sys-on-primary-container); font-size: 30px; }
+nav { display: flex; gap: 4px; margin-left: auto; padding: 4px; border-radius: 28px; background: var(--mat-sys-surface-container); }
+nav a { padding: 12px 22px; border-radius: 24px; color: var(--mat-sys-on-surface-variant); }
+nav a:hover, nav a.selected { background: var(--mat-sys-secondary-container); color: var(--mat-sys-on-secondary-container); }
+@media (max-width: 600px) { header { padding: 16px 20px; gap: 16px; flex-wrap: wrap; } .brand { font-size: 16px; } nav { order: 3; width: 100%; } nav a { flex: 1; text-align: center; } .repository { margin-left: auto; } }

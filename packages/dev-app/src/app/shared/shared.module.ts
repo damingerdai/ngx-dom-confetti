@@ -7,16 +7,17 @@ import { SharedMaterialModule } from './shared.material.module';
 import { ShellComponent } from './shell/shell.component';
 import { HighlightCodeDirective } from './directives';
 
-const DECLARATIONS = [NavBarComponent, ShellComponent, HighlightCodeDirective];
+const DECLARATIONS = [ShellComponent, HighlightCodeDirective];
 
 @NgModule({
   declarations: [...DECLARATIONS],
   imports: [
+    NavBarComponent,
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
     SharedMaterialModule,
   ],
-  exports: [...DECLARATIONS, ReactiveFormsModule, SharedMaterialModule],
+  exports: [NavBarComponent, ...DECLARATIONS, ReactiveFormsModule, SharedMaterialModule],
 })
 export class SharedModule { }

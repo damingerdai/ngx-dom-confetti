@@ -10,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
     NgxDomConfettiModule,
     SharedModule
@@ -24,22 +24,35 @@ export class HomeComponent {
   readonly confettiDirective = viewChild(NgxConfettiDirective);
   readonly active = signal(false);
 
-  colorPresets = [
+  readonly controls = [
+    { name: 'angle', label: 'Angle', max: 360, step: 1, unit: '°' },
+    { name: 'spread', label: 'Spread', max: 360, step: 1, unit: '°' },
+    { name: 'startVelocity', label: 'Start velocity', max: 100, step: 1, unit: '' },
+    { name: 'elementCount', label: 'Particles', max: 200, step: 1, unit: '' },
+    { name: 'dragFriction', label: 'Drag friction', max: 1, step: 0.1, unit: '' },
+    { name: 'duration', label: 'Duration', max: 30000, step: 10, unit: ' ms' },
+    { name: 'stagger', label: 'Stagger', max: 50, step: 1, unit: ' ms' },
+    { name: 'width', label: 'Width', max: 100, step: 1, unit: ' px' },
+    { name: 'height', label: 'Height', max: 100, step: 1, unit: ' px' },
+    { name: 'perspective', label: 'Perspective', max: 1000, step: 1, unit: ' px' },
+  ];
+
+  readonly colorPresets = [
     {
       label: 'Celebration',
-      value: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+      value: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
     },
     {
       label: 'Monochrome',
-      value: ["#000", "#333", "#666"],
+      value: ['#000', '#333', '#666'],
     },
     {
       label: 'Poker',
-      value: ["#000", "#f00"],
+      value: ['#000', '#f00'],
     },
     {
       label: 'RGB',
-      value: ["#f00", "#0f0", "#00f"]
+      value: ['#f00', '#0f0', '#00f']
     }
   ]
 
@@ -57,7 +70,7 @@ export class HomeComponent {
     colors: [this.colorPresets[0].value]
   });
 
-  private readonly formValue = toSignal(this.form.valueChanges, {
+  readonly formValue = toSignal(this.form.valueChanges, {
     initialValue: this.form.getRawValue(),
   });
 
@@ -80,7 +93,7 @@ export class HomeComponent {
   }
 
   hitWithService() {
-    const el = this.btn().nativeElement.children.item(0) as HTMLElement;
+    const el = this.btn().nativeElement;
     if (el) {
       this.ngxDomConfettiService.open(el, this.config());
     }
@@ -88,7 +101,7 @@ export class HomeComponent {
   }
 
   hitWithDirective() {
-    this.confettiDirective()?.launch();
+    this.confettiDirective()?.launch(this.config());
   }
 
 }

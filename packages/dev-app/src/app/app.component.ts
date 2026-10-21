@@ -6,7 +6,7 @@ import { SharedModule } from './shared/shared.module';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         RouterOutlet,
         SharedModule,

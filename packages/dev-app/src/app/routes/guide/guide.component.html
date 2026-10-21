@@ -1,113 +1,23 @@
-<main class="guide-wrapper">
-  <div class="docs-markdown">
-    <h1>How to setup ngx-dom-confetti</h1>
-    <h2>Install</h2>
-    <p>for npm user</p>
-    <app-shell> npm install ngx-dom-confetti </app-shell>
-    <p>for yarn user</p>
-    <app-shell> yarn add ngx-dom-confetti </app-shell>
-    <p>for pnpm user</p>
-    <app-shell> pnpm install ngx-dom-confetti </app-shell>
-    <h2>Usege</h2>
-    <p>
-      import <code class="code-module-name">NgxDomConfettiModule</code> to
-      <code class="code-module-name">AppModule</code>
-    </p>
-    <pre>
-      <code highlight class="language-ts">
-import  {{ '{' }} NgxDomConfettiModule {{ '}' }} from 'ngx-dom-confetti';
-
-&#64;NgModule({{ '{' }}
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-
-    NgxDomConfettiModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-{{ '}' }})
-export class AppModule {{ '{' }}  {{ '}' }}
-      </code>
-    </pre>
-    <h3>
-      use ngx-dom-confetti
-    </h3>
-    <p>
-      component:
-    </p>
-    <pre>
-      <code highlight class="language-html">
-&lt;button mat-raised-button color="primary" &gt;
-  &lt;ngx-dom-confetti&gt;
-    Hit Me!
-  &lt;/ngx-dom-confetti&gt;
-&lt;/button&gt;
-      </code>
-    </pre>
-    <p>
-      service
-    </p>
-    <pre >
-      <code highlight class="language-ts">
-  &#64;Component({{ '{' }}
-    selector: 'app-root',
-    template: `
-    &lt;div class="center"&gt;;
-      &lt;button  #btn="matButton" mat-raised-button color="primary" (click)="hitWithService()"&gt;;
-          Hit Me with Service!
-      &lt;/button&gt;;
-    &lt;/div&gt;;
-    `,
-    styleUrls: ['./app.component.scss']
-  {{'}'}})
-  export class AppComponent {{ '{' }}
-
-    ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
-
-    &#64;ViewChild('btn', {{ '{' }} read: ElementRef {{ '}' }})
-    btn!: ElementRef&lt;HTMLButtonElement&gt;;
-
-    hitWithService() {{ '{' }}
-      const el = this.btn.nativeElement.children.item(0) as HTMLElement;
-      if (el) {{ '{' }}
-        this.ngxDomConfettiService.open(el,this.config);
-      {{ '}' }}
-
-    {{ '}' }}
-  {{ '}' }}
-      </code>
-    </pre>
-    <p>
-      directive
-    </p>
-    <pre >
-      <code highlight class="language-ts">
-&#64;Component({{ '{' }}
-  selector: 'app-root',
-  template: `
-  &lt;div class="center"&gt;;
-    &lt;button mat-raised-button color="primary" (click)="hitWithDirective()"&gt;;
-        Hit Me with Directive!
-    &lt;/button>
-  &lt;/div&gt;;
-  `,
-  styleUrls: ['./app.component.scss']
-{{ '}' }})
-export class AppComponent {{ '{' }}
-
-  ngxDomConfettiService: NgxDomConfettiService = inject(NgxDomConfettiService);
-
-  &#64;ViewChild(NgxConfettiDirective) confettiDirective!: NgxConfettiDirective;
-
-  hitWithDirective() {{ '{' }}
-    this.confettiDirective?.launch();
-  {{ '}' }}
-{{ '}' }}
-      </code>
-    </pre>
-  </div>
+<main class="guide-wrapper" id="main-content" tabindex="-1">
+  <p class="eyebrow">From install to celebration</p>
+  <h1 class="page-heading">A little confetti.<br>A lot of possibilities.</h1>
+  <p class="page-description">Get started with ngx-dom-confetti and bring a moment of delight to your Angular app.</p>
+  <h2>01 · Install</h2>
+  <p>Choose your package manager.</p>
+  <app-shell>npm install ngx-dom-confetti</app-shell>
+  <app-shell>yarn add ngx-dom-confetti</app-shell>
+  <app-shell>pnpm add ngx-dom-confetti</app-shell>
+  <h2>02 · Configure your app</h2>
+  <p>Add the confetti defaults to your application providers.</p>
+  <pre><code highlight class="language-ts">{{ setupExample }}</code></pre>
+  <h2>03 · Pick your approach</h2>
+  <h3>Component</h3>
+  <p>Wrap your content and switch <code class="code-module-name">active</code> from false to true to launch a burst. Reset it before the next celebration.</p>
+  <pre><code highlight class="language-ts">{{ componentExample }}</code></pre>
+  <h3>Service</h3>
+  <p>Launch confetti from any HTML element with an injected service. Pass an optional configuration as the second argument to <code class="code-module-name">open()</code>.</p>
+  <pre><code highlight class="language-ts">{{ serviceExample }}</code></pre>
+  <h3>Directive</h3>
+  <p>Attach the directive to an element and call <code class="code-module-name">launch()</code> with your configuration.</p>
+  <pre><code highlight class="language-ts">{{ directiveExample }}</code></pre>
 </main>
