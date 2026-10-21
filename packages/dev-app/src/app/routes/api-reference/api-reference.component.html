@@ -1,0 +1,71 @@
+<main id="main-content" tabindex="-1">
+  <header class="intro">
+    <p class="eyebrow">The details behind the delight</p>
+    <h1 class="page-heading">API Reference</h1>
+    <p class="page-description">Every public building block, option, and default in ngx-dom-confetti. New here? Start with the <a routerLink="/guide">installation guide</a>.</p>
+  </header>
+  <div class="reference-layout">
+    <nav aria-label="API reference sections">
+      <p class="eyebrow">On this page</p>
+      @for (section of sections; track section.id) {
+        <a routerLink="/api-reference" [fragment]="section.id">{{ section.label }}</a>
+      }
+    </nav>
+    <div class="reference-content">
+      <section id="component" aria-labelledby="component-title">
+        <p class="eyebrow">Component</p>
+        <h2 id="component-title">NgxDomConfettiComponent</h2>
+        <p>Standalone component. Import it into your component's <code>imports</code> and use the <code>ngx-dom-confetti</code> selector.</p>
+        <dl>
+          <dt>active: boolean</dt><dd>Defaults to false. A false → true transition launches a burst; set it back to false before triggering another. Supports boolean attribute coercion.</dd>
+          <dt>config: Partial&lt;ConfettiConfig&gt; | null</dt><dd>Optional configuration input. Updates merge into the component's previous configuration, starting with any injected global configuration. Omitted fields retain their previous values; null does not reset them.</dd>
+        </dl>
+        <pre><code>{{ componentExample }}</code></pre>
+      </section>
+      <section id="directive" aria-labelledby="directive-title">
+        <p class="eyebrow">Directive</p>
+        <h2 id="directive-title">NgxConfettiDirective</h2>
+        <p>Standalone directive with selectors <code>[ngxConfetti]</code> and <code>[confetti]</code>. Exported as <code>ngxConfetti</code> for template references.</p>
+        <dl><dt>launch(config?: Partial&lt;ConfettiConfig&gt;): void</dt><dd>Launches from the host element outside Angular's zone. Runs only in the browser. Without an argument, uses injected global configuration or the library defaults.</dd></dl>
+        <pre><code>{{ directiveExample }}</code></pre>
+      </section>
+      <section id="service" aria-labelledby="service-title">
+        <p class="eyebrow">Service</p>
+        <h2 id="service-title">NgxDomConfettiService</h2>
+        <p>Register the service and its configuration provider before injecting it. It is not automatically provided in root.</p>
+        <dl><dt>open(el: HTMLElement | ElementRef, config?: Partial&lt;ConfettiConfig&gt;): void</dt><dd>Launches from an HTML element or Angular element reference. Without a configuration argument, uses the injected global configuration. The method does not return an animation-completion promise.</dd></dl>
+        <pre><code>{{ serviceExample }}</code></pre>
+      </section>
+      <section id="configuration" aria-labelledby="configuration-title">
+        <p class="eyebrow">Configuration</p>
+        <h2 id="configuration-title">ConfettiConfig</h2>
+        <p>The component and launch methods accept partial configurations. The values below come from the exported <code>defaultsConfettiConfig</code> object.</p>
+        <div class="note"><strong>Configuration precedence</strong><p>For service and directive calls, passing a configuration uses that object instead of the global configuration. Missing fields then fall back to library defaults. Component configuration updates are cumulative.</p></div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Confetti configuration options, horizontally scrollable">
+          <table>
+            <caption>Properties, types, defaults, and behavior</caption>
+            <thead><tr><th scope="col">Property</th><th scope="col">Type / default</th><th scope="col">Description</th></tr></thead>
+            <tbody>
+              @for (row of configRows; track row.name) {
+                <tr><th scope="row"><code>{{ row.name }}</code></th><td><code>{{ row.type }}</code><span class="default-value">{{ row.defaultValue }}</span></td><td>{{ row.description }}</td></tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="note">The playground treats Perspective = 0 as <code>none</code>. When using the library directly, pass <code>'none'</code> to disable perspective. Small positive distances can cause extreme magnification.</p>
+      </section>
+      <section id="providers" aria-labelledby="providers-title">
+        <p class="eyebrow">Setup</p>
+        <h2 id="providers-title">Providers &amp; module</h2>
+        <dl>
+          <dt>provideConfetti(config?: ConfettiConfig): EnvironmentProviders</dt><dd>Registers the global configuration token in application or route environment providers. Omit the argument to use library defaults. This helper does not register the service and does not merge a supplied configuration with defaults.</dd>
+          <dt>NGX_CONFETTI_GLOBAL_CONFIG: InjectionToken&lt;ConfettiConfig&gt;</dt><dd>The injection token read by the component, directive, and service for global settings.</dd>
+          <dt>defaultsConfettiConfig</dt><dd>The exported default configuration object. Copy it when building a custom configuration rather than mutating it.</dd>
+          <dt>NgxDomConfettiModule</dt><dd>Imports and exports the component and directive, and provides the service and default configuration. Both <code>forRoot()</code> and <code>forChild()</code> return <code>ModuleWithProviders&lt;NgxDomConfettiModule&gt;</code> and register those same providers.</dd>
+        </dl>
+        <pre><code>{{ providerExample }}</code></pre>
+        <a routerLink="/home">Try these options in the playground →</a>
+      </section>
+    </div>
+  </div>
+</main>

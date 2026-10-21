@@ -5,4 +5,4 @@ a { text-decoration: none; font-size: 14px; font-weight: 500; }
 nav { display: flex; gap: 4px; margin-left: auto; padding: 4px; border-radius: 28px; background: var(--mat-sys-surface-container); }
 nav a { padding: 12px 22px; border-radius: 24px; color: var(--mat-sys-on-surface-variant); }
 nav a:hover, nav a.selected { background: var(--mat-sys-secondary-container); color: var(--mat-sys-on-secondary-container); }
-@media (max-width: 600px) { header { padding: 16px 20px; gap: 16px; flex-wrap: wrap; } .brand { font-size: 16px; } nav { order: 3; width: 100%; } nav a { flex: 1; text-align: center; } .repository { margin-left: auto; } }
+@media (max-width: 800px) { header { padding: 16px 20px; gap: 16px; flex-wrap: wrap; } .brand { font-size: 16px; } nav { order: 3; width: 100%; } nav a { flex: 1; text-align: center; padding-inline: 12px; } .repository { margin-left: auto; } }

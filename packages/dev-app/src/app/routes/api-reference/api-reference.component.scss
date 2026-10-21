@@ -1,0 +1,157 @@
+:host {
+    display: block;
+}
+
+main {
+    max-width: 1280px;
+    margin: auto;
+    padding: 40px;
+}
+
+.intro {
+    margin-bottom: 40px;
+}
+
+.reference-layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+nav {
+    position: sticky;
+    top: 24px;
+    padding: 20px;
+    border-radius: 24px;
+    background: var(--mat-sys-surface-container);
+}
+
+nav a {
+    display: block;
+    padding: 12px 0;
+    text-decoration: none;
+    font: var(--mat-sys-label-large);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    scroll-margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 28px;
+    border-radius: 28px;
+    background: var(--mat-sys-surface-container-low);
+}
+
+h2 {
+    font: var(--mat-sys-headline-small);
+    overflow-wrap: anywhere;
+}
+
+p,
+dd,
+td {
+    color: var(--mat-sys-on-surface-variant);
+    line-height: 1.7;
+}
+
+dt {
+    margin-top: 24px;
+    font: var(--mat-sys-title-small);
+    overflow-wrap: anywhere;
+}
+
+dd {
+    margin: 8px 0 0;
+}
+
+code {
+    font-family: monospace;
+    font-size: .9em;
+    overflow-wrap: anywhere;
+}
+
+pre {
+    padding: 20px;
+    border-radius: 16px;
+    background: var(--mat-sys-surface-container-high);
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+.note {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 16px;
+    background: var(--mat-sys-secondary-container);
+    color: var(--mat-sys-on-secondary-container);
+}
+
+.note p {
+    color: inherit;
+    margin: 8px 0 0;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+caption {
+    text-align: left;
+    margin-bottom: 16px;
+    font: var(--mat-sys-label-large);
+}
+
+th,
+td {
+    padding: 16px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.default-value {
+    display: block;
+    margin-top: 8px;
+    overflow-wrap: anywhere;
+    min-width: 100px;
+}
+
+@media (max-width: 900px) {
+    .reference-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    nav {
+        position: static;
+    }
+
+    nav a {
+        display: inline-block;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 24px 20px;
+    }
+
+    section {
+        padding: 24px 20px;
+    }
+
+    table {
+        min-width: 540px;
+    }
+}
