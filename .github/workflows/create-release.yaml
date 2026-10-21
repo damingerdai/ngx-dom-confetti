@@ -70,7 +70,7 @@ jobs:
           printf 'Using tag: %s\n' "$TAG"
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # An explicit tag ref prevents a same-named branch from being used.
           # Checkout fails here if the remote tag does not exist.
@@ -95,7 +95,7 @@ jobs:
           fi
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -125,13 +125,13 @@ jobs:
 
       - name: Download npm package
         if: inputs.artifact_name != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: ${{ inputs.artifact_name }}
           path: release
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: ${{ steps.tag.outputs.tag }}

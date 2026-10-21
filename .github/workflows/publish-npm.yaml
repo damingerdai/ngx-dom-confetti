@@ -28,11 +28,11 @@ jobs:
     outputs:
       tag: ${{ steps.version.outputs.tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PAT }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -105,14 +105,13 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: npm-release
           path: release
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          # Includes npm >= 11.5.1, required for trusted publishing.
-          node-version: '>=24.15.0 <25'
+          node-version: 24
       - name: Publish with npm trusted publishing (OIDC)
         run: npm publish ./release/ngx-dom-confetti.tgz --access public --registry=https://registry.npmjs.org/
 
