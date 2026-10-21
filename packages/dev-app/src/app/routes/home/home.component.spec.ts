@@ -27,7 +27,7 @@ describe('HomeComponent', () => {
       angle: 90,
       width: '10px',
       height: '10px',
-      perspective: '0px',
+      perspective: 'none',
     });
     component.form.patchValue({ width: 20, height: 15, perspective: 100 });
     expect(component.config()).toMatchObject({
@@ -35,6 +35,34 @@ describe('HomeComponent', () => {
       height: '15px',
       perspective: '100px',
     });
+  });
+
+  it('disables perspective again after changing it back to zero', () => {
+    component.form.patchValue({ perspective: 800 });
+    expect(component.config().perspective).toBe('800px');
+    component.form.patchValue({ perspective: 0 });
+    expect(component.config().perspective).toBe('none');
+  });
+
+  it('renders service and directive bursts without perspective by default', () => {
+    vi.useFakeTimers();
+    try {
+      component.hitWithService();
+      component.hitWithDirective();
+      const targets = fixture.nativeElement.querySelectorAll('.actions button') as NodeListOf<HTMLButtonElement>;
+      for (const target of targets) {
+        expect(target.style.perspective).toBe('none');
+        const particles = target.querySelectorAll(':scope > div');
+        expect(particles.length).toBe(50);
+        expect((particles[0] as HTMLElement).style.width).toBe('10px');
+      }
+      vi.advanceTimersByTime(3200);
+      for (const target of targets) {
+        expect(target.querySelectorAll(':scope > div').length).toBe(0);
+      }
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('updates visible values with OnPush when the form changes', async () => {

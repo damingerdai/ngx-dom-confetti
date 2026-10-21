@@ -80,7 +80,8 @@ export class HomeComponent {
       ...config,
       width: config.width + 'px',
       height: config.height + 'px',
-      perspective: config.perspective + 'px',
+      // Zero means disabled in the playground; CSS 0px still enables perspective.
+      perspective: config.perspective === 0 ? 'none' : `${config.perspective}px`,
     };
   });
 
