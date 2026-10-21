@@ -74,6 +74,12 @@ For programmatic input updates, use Angular bindings or
 input properties. Read component inputs with `component.active()` and
 `component.config()`.
 
+## Demo prerendering
+
+`npm run build` prerenders the dev app's `/`, `/home`, `/guide`, and
+`/api-reference` routes as static HTML under `dist/dev-app/browser`. Deploy
+that directory to a static host.
+
 
 ```html
 <button mat-raised-button color="primary">
