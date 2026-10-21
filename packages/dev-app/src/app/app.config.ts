@@ -2,7 +2,7 @@ import { ApplicationConfig, importProvidersFrom, provideZonelessChangeDetection 
 import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from "@angular/router";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from "./app.routes";
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule, provideClientHydration } from "@angular/platform-browser";
 import { NgxDomConfettiModule } from "ngx-dom-confetti";
 
 export const appConfig: ApplicationConfig = {
@@ -20,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       BrowserModule,
       NgxDomConfettiModule.forRoot(),
-    )
+    ), provideClientHydration()
   ]
 }

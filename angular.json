@@ -37,7 +37,9 @@
               "packages/dev-app/src/styles.scss"
             ],
             "scripts": [],
-            "browser": "packages/dev-app/src/main.ts"
+            "browser": "packages/dev-app/src/main.ts",
+            "server": "packages/dev-app/src/main.server.ts",
+            "outputMode": "static"
           },
           "configurations": {
             "production": {
